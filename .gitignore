@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+.cache/
+*.log
+.idea/
+.vscode/
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+reports/**
+!reports/.gitkeep
+config.json

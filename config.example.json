@@ -1,0 +1,53 @@
+{
+  "usdkrw": null,
+  "holdings": {
+    "CRCL": {
+      "avg_price": 95.13,
+      "qty": 290,
+      "currency": "USD",
+      "spider_orders": []
+    },
+    "BTC": {
+      "avg_price": 140927408,
+      "qty": 0.1956184,
+      "currency": "KRW",
+      "spider_orders": []
+    },
+    "ETH": {
+      "avg_price": 4991183,
+      "qty": 4.16840143,
+      "currency": "KRW",
+      "spider_orders": []
+    },
+    "LINK": {
+      "avg_price": 24674,
+      "qty": 1008.3814,
+      "currency": "KRW",
+      "spider_orders": []
+    },
+    "SOL": {
+      "avg_price": 228305,
+      "qty": 48.94584164,
+      "currency": "KRW",
+      "spider_orders": []
+    },
+    "ONDO": {
+      "avg_price": 487.2,
+      "qty": 3536.4063637,
+      "currency": "KRW",
+      "spider_orders": []
+    },
+    "TAO": {
+      "avg_price": 339140,
+      "qty": 1.3354244,
+      "currency": "KRW",
+      "spider_orders": []
+    },
+    "XRP": {
+      "avg_price": 4315,
+      "qty": 560.4,
+      "currency": "KRW",
+      "spider_orders": []
+    }
+  }
+}
