@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: crypto-desk
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: TELEGRAM_ENABLED
+        value: "false"
+      - key: DRY_RUN
+        value: "false"

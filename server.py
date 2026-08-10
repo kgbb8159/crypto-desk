@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import mimetypes
+import os
 import ssl
 import subprocess
 import sys
@@ -19,7 +20,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
 ROOT = Path(__file__).resolve().parent
-PORT = 8787
+PORT = int(os.environ.get("PORT", "8787"))
 UA = "SignalDeskBot/1.0 (+local rss aggregator)"
 REPORTS = ROOT / "reports"
 HISTORY = REPORTS / "history"

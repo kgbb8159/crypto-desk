@@ -821,23 +821,26 @@
     renderFeed();
   });
 
-  function markdownToTicker(md) {
-    if (!md) return "No briefing yet · auto every 8 hours";
-    const strategy = (md.match(/🎯[^\n]+/) || [""])[0].trim();
-    const plain = md
-      .replace(/```[\s\S]*?```/g, " ")
+  function formatBriefingPanel(md) {
+    if (!md) return "Waiting for briefing…";
+    return String(md)
+      .replace(/\r\n/g, "\n")
+      .replace(/```[\s\S]*?```/g, (block) => block.replace(/```/g, "").trim())
       .replace(/^#{1,6}\s*/gm, "")
-      .replace(/[*_`>#]/g, " ")
-      .replace(/\s+/g, " ")
+      .replace(/\*\*(.*?)\*\*/g, "$1")
+      .replace(/\*(.*?)\*/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/^>\s?/gm, "")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
       .trim();
-    const core = strategy || plain.slice(0, 420);
-    return `${core}   ···   ${plain.slice(0, 900)}`;
   }
 
   function setLedText(text) {
     if (!els.ledTrack) return;
-    const line = text || "Waiting for briefing…";
-    els.ledTrack.textContent = `${line}     ///     ${line}     ///     `;
+    els.ledTrack.textContent = text || "Waiting for briefing…";
+    const viewport = els.ledTrack.parentElement;
+    if (viewport) viewport.scrollTop = 0;
   }
 
   function formatHistoryLabel(item) {
@@ -875,21 +878,33 @@
     els.historyView.hidden = false;
     els.historyView.textContent = markdown || "";
     document.getElementById("briefing-history")?.classList.add("is-open");
-    if (keepLed) setLedText(markdownToTicker(markdown || ""));
+    if (keepLed) setLedText(formatBriefingPanel(markdown || ""));
   }
 
   async function loadLatestBriefing() {
     try {
       const res = await fetch("/api/briefing/latest");
-      const data = await res.json();
-      if (!data.exists) {
-        setLedText(data.hint || "Waiting for auto briefing…");
+      if (res.ok) {
+        const data = await res.json();
+        if (!data.exists) {
+          setLedText(data.hint || "Waiting for auto briefing…");
+        } else {
+          setLedText(formatBriefingPanel(data.markdown || ""));
+        }
         return;
       }
-      setLedText(markdownToTicker(data.markdown || ""));
-    } catch (err) {
+    } catch {
+      /* try static Pages fallback */
+    }
+    try {
+      const res = await fetch(`./reports/latest.md?t=${Date.now()}`);
+      if (!res.ok) throw new Error("no static briefing");
+      const md = await res.text();
+      if (!md.trim()) throw new Error("empty static briefing");
+      setLedText(formatBriefingPanel(md));
+    } catch {
       setLedText(
-        "Gemini briefing needs local server · Mac에서 server.py 실행 + .env에 GEMINI_API_KEY 설정"
+        "Gemini briefing needs cloud deploy · GitHub Actions 또는 Render에 서버 배포 필요"
       );
     }
   }
