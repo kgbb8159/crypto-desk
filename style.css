@@ -192,154 +192,72 @@ body {
 .world-clocks {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 8px;
   margin: 8px clamp(16px, 4vw, 40px) 6px;
-  padding: 18px 16px 16px;
+  padding: 10px 10px 8px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(3px);
-  border: 1px solid transparent;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(57, 255, 20, 0.18);
+  box-shadow:
+    inset 0 0 24px rgba(0, 0, 0, 0.65),
+    0 0 14px rgba(57, 255, 20, 0.08);
 }
 
 .clock-cell {
   display: grid;
   justify-items: center;
-  gap: 10px;
-  padding: 8px 6px 10px;
+  gap: 6px;
+  padding: 6px 4px 8px;
   border-radius: 0;
   background: transparent;
   border: 0;
   text-align: center;
-}
-
-.ios-face {
-  position: relative;
-  width: min(118px, 20vw);
-  height: min(118px, 20vw);
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1.5px solid transparent;
-  box-shadow: none;
-}
-
-.ios-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-}
-
-.tick {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  transform: rotate(var(--deg));
-  pointer-events: none;
-}
-
-.tick::before {
-  content: "";
-  width: 1px;
-  height: 5px;
-  margin-top: 8px;
-  border-radius: 0;
-  background: #c7c7cc;
-}
-
-.tick.major::before {
-  width: 1.5px;
-  height: 9px;
-  background: #111111;
-}
-
-.hand {
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform-origin: 50% 100%;
-  border-radius: 2px;
-}
-
-.hand-hour {
-  width: 3px;
-  height: 28%;
-  margin-left: -1.5px;
-  background: #111111;
-}
-
-.hand-minute {
-  width: 2.2px;
-  height: 38%;
-  margin-left: -1.1px;
-  background: #111111;
-}
-
-.hand-second {
-  width: 1.2px;
-  height: 42%;
-  margin-left: -0.6px;
-  background: #111111;
-}
-
-.hand-second::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  width: 1.2px;
-  height: 16%;
-  margin-left: -0.6px;
-  background: #111111;
-}
-
-.ios-hub {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  border-radius: 50%;
-  background: #111111;
-  box-shadow: none;
-  z-index: 2;
-}
-
-.clock-meta {
-  display: grid;
-  gap: 2px;
-  justify-items: center;
   min-width: 0;
-  text-align: center;
+}
+
+.matrix-clock {
+  width: 100%;
+  max-width: 140px;
+  padding: 8px 6px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.28) 0 1px,
+      transparent 1px 3px
+    ),
+    #001406;
+  border: 1px solid rgba(57, 255, 20, 0.28);
+  box-shadow: inset 0 0 12px rgba(57, 255, 20, 0.12);
 }
 
 .clock-city {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
   font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #39ff14;
   font-weight: 600;
-  text-shadow: 0 0 8px rgba(57, 255, 20, 0.35);
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.45);
 }
 
 .clock-digital {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  display: block;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: clamp(0.95rem, 2.4vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
   line-height: 1.1;
-  color: #111111;
+  color: #39ff14;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.65);
   font-variant-numeric: tabular-nums;
 }
 
 .clock-day {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
   font-size: 0.68rem;
-  color: #8e8e93;
+  color: rgba(157, 255, 176, 0.55);
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .meta {
@@ -1202,34 +1120,32 @@ body.modal-open {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 4px;
     margin: 4px 10px 4px;
-    padding: 8px 6px 6px;
+    padding: 6px 4px 4px;
   }
 
   .clock-cell {
-    gap: 4px;
+    gap: 3px;
     padding: 2px 1px 4px;
   }
 
-  .ios-face {
-    width: min(56px, 14vw);
-    height: min(56px, 14vw);
+  .matrix-clock {
+    max-width: none;
+    padding: 5px 2px;
   }
 
-  .hand-hour { height: 26%; }
-  .hand-minute { height: 36%; }
-
   .clock-city {
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
     color: #39ff14;
   }
 
   .clock-digital {
-    font-size: 0.62rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
   }
 
   .clock-day {
-    font-size: 0.52rem;
+    font-size: 0.5rem;
   }
 
   .watch-board {
@@ -1453,9 +1369,12 @@ body.modal-open {
 }
 
 @media (max-width: 430px) {
-  .ios-face {
-    width: min(50px, 13vw);
-    height: min(50px, 13vw);
+  .matrix-clock {
+    padding: 4px 1px;
+  }
+
+  .clock-digital {
+    font-size: 0.66rem;
   }
 
   .watch-tile {

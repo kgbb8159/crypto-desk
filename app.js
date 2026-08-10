@@ -257,8 +257,8 @@
   }
 
   function formatClockTime(tz) {
-    const { hour, minute } = getTzParts(tz);
-    return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+    const { hour, minute, second } = getTzParts(tz);
+    return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:${String(second).padStart(2, "0")}`;
   }
 
   function formatClockDate(tz) {
@@ -270,41 +270,23 @@
     }).format(new Date());
   }
 
-  function setIosClock(cell, tz) {
-    const { hour, minute, second } = getTzParts(tz);
-    const hourEl = cell.querySelector(".hand-hour");
-    const minuteEl = cell.querySelector(".hand-minute");
-    const secondEl = cell.querySelector(".hand-second");
+  function setMatrixClock(cell, tz) {
     const timeEl = cell.querySelector(".clock-digital");
     const dayEl = cell.querySelector(".clock-day");
-    if (hourEl) hourEl.style.transform = `rotate(${(hour % 12) * 30 + minute * 0.5}deg)`;
-    if (minuteEl) minuteEl.style.transform = `rotate(${minute * 6 + second * 0.1}deg)`;
-    if (secondEl) secondEl.style.transform = `rotate(${second * 6}deg)`;
     if (timeEl) timeEl.textContent = formatClockTime(tz);
     if (dayEl) dayEl.textContent = formatClockDate(tz);
   }
 
   function renderWorldClocks() {
     if (!els.worldClocks) return;
-    const marks = Array.from({ length: 60 }, (_, i) => {
-      const major = i % 5 === 0;
-      return `<span class="tick ${major ? "major" : ""}" style="--deg:${i * 6}deg"></span>`;
-    }).join("");
     els.worldClocks.innerHTML = WORLD_CLOCKS.map(
       (c) => `
       <div class="clock-cell" data-tz="${c.tz}">
         <span class="clock-city">${c.label}</span>
-        <div class="ios-face" aria-hidden="true">
-          <div class="ios-ring">${marks}</div>
-          <div class="hand hand-hour"></div>
-          <div class="hand hand-minute"></div>
-          <div class="hand hand-second"></div>
-          <div class="ios-hub"></div>
-        </div>
-        <div class="clock-meta">
+        <div class="matrix-clock" aria-hidden="true">
           <span class="clock-digital">${formatClockTime(c.tz)}</span>
-          <span class="clock-day">${formatClockDate(c.tz)}</span>
         </div>
+        <span class="clock-day">${formatClockDate(c.tz)}</span>
       </div>`
     ).join("");
     tickWorldClocks();
@@ -313,7 +295,7 @@
   function tickWorldClocks() {
     if (!els.worldClocks) return;
     els.worldClocks.querySelectorAll(".clock-cell").forEach((cell) => {
-      setIosClock(cell, cell.dataset.tz);
+      setMatrixClock(cell, cell.dataset.tz);
     });
   }
 
@@ -817,7 +799,9 @@
       }
       setLedText(markdownToTicker(data.markdown || ""));
     } catch (err) {
-      setLedText(`Briefing load failed: ${err.message || err}`);
+      setLedText(
+        "Gemini briefing needs local server · Mac에서 server.py 실행 + .env에 GEMINI_API_KEY 설정"
+      );
     }
   }
 
