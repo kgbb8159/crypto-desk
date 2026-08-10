@@ -49,24 +49,21 @@
         <div class="led-viewport" aria-live="polite">
           <div id="led-track" class="led-track">Waiting for briefing…</div>
         </div>
-      </div>
-      <div class="briefing-history" id="briefing-history">
-        <div class="history-head">
-          <h3>History</h3>
-          <button id="btn-history-latest" class="btn-history-latest" type="button">Latest</button>
+        <div class="briefing-history" id="briefing-history">
+          <div class="history-head">
+            <button id="btn-history-toggle" class="btn-history-toggle" type="button" aria-expanded="false">History</button>
+            <button id="btn-history-latest" class="btn-history-latest" type="button">Latest</button>
+          </div>
+          <ul id="history-list" class="history-list" hidden></ul>
+          <pre id="history-view" class="history-view" hidden>Select a briefing from history.</pre>
         </div>
-        <ul id="history-list" class="history-list"></ul>
-        <pre id="history-view" class="history-view" hidden>Select a briefing from history.</pre>
       </div>
     </section>
 
     <section class="feed-panel" aria-label="Crypto Main Issues">
       <div class="feed-head">
-        <div class="feed-head-copy">
-          <span class="feed-kicker">SIGNAL FEED</span>
-          <h3 id="feed-title">Crypto Main Issues</h3>
-        </div>
-        <div id="status" class="status compact">Loading feeds…</div>
+        <h3 id="feed-title">Crypto Main Issues</h3>
+        <div id="status" class="status compact" hidden></div>
       </div>
 
       <div class="cat-tabs" role="tablist" aria-label="Categories">

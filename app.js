@@ -138,6 +138,7 @@
     historyList: document.getElementById("history-list"),
     historyView: document.getElementById("history-view"),
     btnHistoryLatest: document.getElementById("btn-history-latest"),
+    btnHistoryToggle: document.getElementById("btn-history-toggle"),
     summaryModal: document.getElementById("summary-modal"),
     summaryTitle: document.getElementById("summary-title"),
     summaryMeta: document.getElementById("summary-meta"),
@@ -673,13 +674,27 @@
   }
 
   function setStatus(msg, isError = false) {
+    if (!els.status) return;
     if (!msg) {
+      els.status.hidden = true;
       els.status.classList.add("hidden");
       return;
     }
+    // Keep mobile clean: only surface errors in status.
+    if (!isError && window.matchMedia("(max-width: 860px)").matches) {
+      els.status.hidden = true;
+      return;
+    }
+    els.status.hidden = false;
     els.status.classList.remove("hidden");
     els.status.classList.toggle("error", isError);
     els.status.textContent = msg;
+  }
+
+  function setHistoryExpanded(open) {
+    if (!els.historyList || !els.btnHistoryToggle) return;
+    els.historyList.hidden = !open;
+    els.btnHistoryToggle.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
   async function refresh() {
@@ -783,6 +798,7 @@
 
   function openHistoryPanel(markdown, { keepLed = true } = {}) {
     if (!els.historyView) return;
+    setHistoryExpanded(true);
     els.historyView.hidden = false;
     els.historyView.textContent = markdown || "";
     document.getElementById("briefing-history")?.classList.add("is-open");
@@ -828,8 +844,8 @@
           await openHistoryItem(btn.dataset.id);
         });
       });
-    } catch (err) {
-      els.historyList.innerHTML = `<li>${escapeHtml(err.message || String(err))}</li>`;
+    } catch {
+      els.historyList.innerHTML = "";
     }
   }
 
@@ -844,6 +860,15 @@
       openHistoryPanel(`Failed: ${err.message || err}`, { keepLed: false });
     }
   }
+
+  els.btnHistoryToggle?.addEventListener("click", () => {
+    const open = els.btnHistoryToggle.getAttribute("aria-expanded") !== "true";
+    setHistoryExpanded(open);
+    if (!open) {
+      if (els.historyView) els.historyView.hidden = true;
+      document.getElementById("briefing-history")?.classList.remove("is-open");
+    }
+  });
 
   els.btnHistoryLatest?.addEventListener("click", async () => {
     try {
