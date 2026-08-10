@@ -484,6 +484,16 @@ class Handler(SimpleHTTPRequestHandler):
 
 def main():
     mimetypes.add_type("text/javascript", ".js")
+    # Cloud: restore portfolio from secret if present
+    portfolio_raw = os.environ.get("PORTFOLIO_CONFIG", "").strip()
+    if portfolio_raw:
+        try:
+            cfg = ROOT / "config.json"
+            cfg.write_text(portfolio_raw, encoding="utf-8")
+            print("Wrote config.json from PORTFOLIO_CONFIG")
+        except Exception as exc:  # noqa: BLE001
+            print(f"PORTFOLIO_CONFIG write failed: {exc}")
+
     HISTORY.mkdir(parents=True, exist_ok=True)
     mt = latest_mtime()
     if mt is not None:
@@ -495,8 +505,7 @@ def main():
         target=briefing_scheduler, name="briefing-scheduler", daemon=True
     ).start()
     server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
-    print(f"CRYPTO DESK → http://127.0.0.1:{PORT}")
-    print(f"Phone (same Wi-Fi) → http://<Mac-IP>:{PORT}")
+    print(f"CRYPTO DESK → http://0.0.0.0:{PORT}")
     print("Gemini briefing auto-run: every 8 hours")
     server.serve_forever()
 

@@ -1,0 +1,10 @@
+.venv
+venv
+__pycache__
+*.pyc
+.git
+.env
+node_modules
+.DS_Store
+reports/raw-*.json
+reports/morning-brief-*.md

@@ -1,6 +1,18 @@
 (() => {
   "use strict";
 
+  // GitHub Pages → Fly cloud API (always-on). Localhost keeps same-origin.
+  const CLOUD_API = "https://crypto-desk-kibong.fly.dev";
+  const API_BASE =
+    typeof location !== "undefined" &&
+    (location.hostname.endsWith("github.io") || location.hostname === "github.com")
+      ? CLOUD_API
+      : "";
+
+  function apiUrl(path) {
+    return `${API_BASE}${path}`;
+  }
+
   const WATCH = [
     {
       id: "CRCL",
@@ -303,7 +315,7 @@
   }
 
   async function fetchViaLocal(url) {
-    const res = await fetch(`/api/rss?url=${encodeURIComponent(url)}`);
+    const res = await fetch(apiUrl(`/api/rss?url=${encodeURIComponent(url)}`));
     if (!res.ok) throw new Error(`local ${res.status}`);
     const data = await res.json();
     if (!data?.xml) throw new Error("local empty");
@@ -370,7 +382,7 @@
 
   async function fetchJson(url) {
     try {
-      const res = await fetch(`/api/json?url=${encodeURIComponent(url)}`);
+      const res = await fetch(apiUrl(`/api/json?url=${encodeURIComponent(url)}`));
       if (res.ok) return res.json();
     } catch {
       /* fall through */
@@ -650,6 +662,8 @@
   }
 
   function isStaticHost() {
+    // Pages + cloud API is fully functional.
+    if (API_BASE) return false;
     const host = location.hostname || "";
     return host.endsWith("github.io") || host === "github.com";
   }
@@ -729,7 +743,7 @@
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 60000);
-      const res = await fetch("/api/summarize", {
+      const res = await fetch(apiUrl("/api/summarize"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -929,7 +943,7 @@
 
   async function loadBriefingStatus() {
     try {
-      const res = await fetch("/api/briefing/status");
+      const res = await fetch(apiUrl("/api/briefing/status"));
       const data = await res.json();
       const next = data.next_run_at
         ? new Date(data.next_run_at * 1000).toLocaleTimeString("en-US", {
@@ -957,7 +971,7 @@
 
   async function loadLatestBriefing() {
     try {
-      const res = await fetch("/api/briefing/latest");
+      const res = await fetch(apiUrl("/api/briefing/latest"));
       if (res.ok) {
         const data = await res.json();
         if (!data.exists) {
@@ -986,7 +1000,7 @@
   async function loadBriefingHistory() {
     if (!els.historyList) return;
     try {
-      const res = await fetch("/api/briefing/history?limit=40");
+      const res = await fetch(apiUrl("/api/briefing/history?limit=40"));
       const data = await res.json();
       const items = data.items || [];
       if (!items.length) {
@@ -1014,7 +1028,7 @@
   async function openHistoryItem(id) {
     if (!id || !els.historyView) return;
     try {
-      const res = await fetch(`/api/briefing/item?id=${encodeURIComponent(id)}`);
+      const res = await fetch(apiUrl(`/api/briefing/item?id=${encodeURIComponent(id)}`));
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       openHistoryPanel(data.markdown || "");
@@ -1034,7 +1048,7 @@
 
   els.btnHistoryLatest?.addEventListener("click", async () => {
     try {
-      const res = await fetch("/api/briefing/latest");
+      const res = await fetch(apiUrl("/api/briefing/latest"));
       const data = await res.json();
       if (!data.exists) {
         openHistoryPanel(data.hint || "No briefing yet.", { keepLed: false });
