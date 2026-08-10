@@ -104,7 +104,7 @@
   const WORLD_CLOCKS = [
     { id: "seoul", label: "SEOUL", tz: "Asia/Seoul" },
     { id: "london", label: "LONDON", tz: "Europe/London" },
-    { id: "newyork", label: "NEW YORK", tz: "America/New_York" },
+    { id: "newyork", label: "NY", tz: "America/New_York" },
     { id: "la", label: "LA", tz: "America/Los_Angeles" },
   ];
 
