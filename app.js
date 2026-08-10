@@ -610,20 +610,15 @@
     }[cat] || cat;
   }
 
-  function titleForCategory(cat) {
-    return {
-      guru: "Guru Main Issues",
-      macro: "Macro Main Issues",
-      crypto: "Crypto Main Issues",
-      stocks: "Stock Main Issues",
-    }[cat] || "Main Issues";
+  function titleForCategory() {
+    return "Top 5 Issues";
   }
 
   function importanceScore(item) {
     let s = item.score || 0;
     if (item.watchHit) s += 18;
     if (state.asset && item.assets.includes(state.asset)) s += 25;
-    if (state.category === "macro" && item.macros.length) s += 8;
+    if (item.macros.length) s += 4;
     return s;
   }
 
@@ -632,9 +627,8 @@
     return state.items
       .filter((item) => {
         if (state.asset && !item.assets.includes(state.asset)) return false;
-        if (item.category !== state.category) return false;
         if (!q) return true;
-        return `${item.title} ${item.summary} ${item.source} ${item.assets.join(" ")}`
+        return `${item.title} ${item.summary} ${item.source} ${item.assets.join(" ")} ${item.category}`
           .toLowerCase()
           .includes(q);
       })
@@ -646,14 +640,8 @@
       });
   }
 
-  function setActiveTab(cat) {
-    state.category = cat;
-    document.querySelectorAll(".cat-tab").forEach((c) => {
-      const on = c.dataset.cat === cat;
-      c.classList.toggle("active", on);
-      c.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    if (els.macroChips) els.macroChips.hidden = cat !== "macro";
+  function setActiveTab() {
+    /* tabs removed — unified top issues */
   }
 
   function renderWatchCards() {
@@ -672,11 +660,7 @@
     els.watchCards.querySelectorAll(".watch-tile").forEach((btn) => {
       btn.addEventListener("click", () => {
         const sym = btn.dataset.asset;
-        const watch = WATCH.find((w) => w.symbol === sym);
         state.asset = state.asset === sym ? null : sym;
-        if (state.asset && watch) {
-          setActiveTab(watch.kind === "stock" ? "stocks" : "crypto");
-        }
         renderWatchCards();
         renderBithumbCards();
         renderFeed();
@@ -705,7 +689,6 @@
       btn.addEventListener("click", () => {
         const sym = btn.dataset.asset;
         state.asset = state.asset === sym ? null : sym;
-        if (state.asset) setActiveTab("crypto");
         renderWatchCards();
         renderBithumbCards();
         renderFeed();
@@ -718,23 +701,9 @@
   }
 
   function renderMacroChips() {
-    els.macroChips.innerHTML = MACRO_TOPICS.map((m) => {
-      const hits = state.items.filter((item) => item.macros.includes(m.id)).length;
-      return `
-        <button class="macro-chip" type="button" data-macro="${m.id}">
-          <b>${m.label}</b>
-          <span class="${hits ? "hit" : "none"}">${hits ? `${hits}` : "—"}</span>
-        </button>`;
-    }).join("");
-
-    els.macroChips.querySelectorAll(".macro-chip").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        setActiveTab("macro");
-        state.query = btn.dataset.macro === "Rates" ? "rate" : btn.dataset.macro.toLowerCase();
-        if (els.search) els.search.value = state.query;
-        renderFeed();
-      });
-    });
+    if (!els.macroChips) return;
+    els.macroChips.hidden = true;
+    els.macroChips.innerHTML = "";
   }
 
   function renderSources() {
@@ -881,11 +850,11 @@
   function renderFeed() {
     const all = filteredItems();
     const items = all.slice(0, TOP_N);
-    els.title.textContent = titleForCategory(state.category);
+    els.title.textContent = titleForCategory();
     if (els.count) els.count.textContent = "";
-    if (els.macroChips) els.macroChips.hidden = state.category !== "macro";
+    if (els.macroChips) els.macroChips.hidden = true;
     if (!items.length) {
-      els.feed.innerHTML = `<div class="empty">No top issues in this tab. Try another category.</div>`;
+      els.feed.innerHTML = `<div class="empty">No top issues right now. Pull to refresh.</div>`;
       return;
     }
     els.feed.innerHTML = items
@@ -983,15 +952,6 @@
     state.loading = false;
     els.refresh.disabled = false;
   }
-
-  document.querySelectorAll(".cat-tab").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.query = "";
-      if (els.search) els.search.value = "";
-      setActiveTab(btn.dataset.cat);
-      renderFeed();
-    });
-  });
 
   els.search?.addEventListener("input", () => {
     state.query = els.search.value;
@@ -1320,7 +1280,6 @@
     startMatrixRain();
     renderWorldClocks();
     setInterval(tickWorldClocks, 1000);
-    setActiveTab(state.category);
     renderWatchCards();
     renderBithumbCards();
     renderMacroChips();
