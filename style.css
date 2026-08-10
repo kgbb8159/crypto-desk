@@ -1011,6 +1011,88 @@ body.modal-open {
   backdrop-filter: blur(4px);
 }
 
+.lock-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.lock-gate[hidden] {
+  display: none !important;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+.lock-card {
+  width: min(380px, 100%);
+  display: grid;
+  gap: 12px;
+  padding: 22px 18px;
+  background: linear-gradient(180deg, #07110c, #030604);
+  border: 1px solid rgba(57, 255, 20, 0.28);
+  box-shadow: 0 0 28px rgba(57, 255, 20, 0.1);
+}
+
+.lock-kicker {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.12em;
+  color: rgba(57, 255, 20, 0.7);
+}
+
+.lock-title {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 1.4rem;
+  color: #39ff14;
+  font-weight: 400;
+}
+
+.lock-copy {
+  font-size: 0.9rem;
+  color: rgba(200, 255, 212, 0.72);
+  line-height: 1.45;
+}
+
+.lock-field {
+  display: grid;
+  gap: 6px;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: rgba(157, 255, 176, 0.7);
+}
+
+.lock-field input {
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid rgba(57, 255, 20, 0.28);
+  background: #001406;
+  color: #c8ffd4;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 1rem;
+}
+
+.lock-field input:focus {
+  outline: 1px solid rgba(57, 255, 20, 0.55);
+}
+
+.lock-error {
+  margin: 0;
+  color: #ff8f9d;
+  font-size: 0.85rem;
+}
+
+.lock-submit {
+  width: 100%;
+  justify-content: center;
+}
+
 .summary-modal[hidden] {
   display: none !important;
 }

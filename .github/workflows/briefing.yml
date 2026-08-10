@@ -47,6 +47,8 @@ jobs:
           GEMINI_MODEL: gemini-3.5-flash
           LLM_PROVIDER: gemini
           TELEGRAM_ENABLED: "false"
+          # Pages repo is public — keep qty/avg cost off committed reports
+          BRIEFING_INCLUDE_PORTFOLIO: "0"
         run: python main.py --no-telegram
 
       - name: Publish report for Pages

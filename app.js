@@ -8,9 +8,48 @@
     (location.hostname.endsWith("github.io") || location.hostname === "github.com")
       ? CLOUD_API
       : "";
+  const TOKEN_KEY = "crypto-desk-token";
+  let authRequired = Boolean(API_BASE);
+  let unlockResolver = null;
 
   function apiUrl(path) {
     return `${API_BASE}${path}`;
+  }
+
+  function getDeskToken() {
+    try {
+      return localStorage.getItem(TOKEN_KEY) || "";
+    } catch {
+      return "";
+    }
+  }
+
+  function setDeskToken(token) {
+    try {
+      if (token) localStorage.setItem(TOKEN_KEY, token);
+      else localStorage.removeItem(TOKEN_KEY);
+    } catch {
+      /* ignore */
+    }
+  }
+
+  function authHeaders(extra) {
+    const headers = { ...(extra || {}) };
+    const token = getDeskToken();
+    if (token) headers["X-Desk-Token"] = token;
+    return headers;
+  }
+
+  async function apiFetch(path, options = {}) {
+    const opts = { ...options };
+    opts.headers = authHeaders(opts.headers);
+    const res = await fetch(apiUrl(path), opts);
+    if (res.status === 401 && authRequired) {
+      setDeskToken("");
+      showLock("비밀번호가 필요하거나 만료되었습니다.");
+      throw new Error("로그인이 필요합니다");
+    }
+    return res;
   }
 
   const WATCH = [
@@ -159,6 +198,11 @@
     summaryBody: document.getElementById("summary-body"),
     summarySource: document.getElementById("summary-source"),
     summaryClose: document.getElementById("summary-close"),
+    lockGate: document.getElementById("lock-gate"),
+    lockForm: document.getElementById("lock-form"),
+    lockPassword: document.getElementById("lock-password"),
+    lockError: document.getElementById("lock-error"),
+    lockSubmit: document.getElementById("lock-submit"),
   };
 
   function textOf(node, selectors) {
@@ -315,7 +359,7 @@
   }
 
   async function fetchViaLocal(url) {
-    const res = await fetch(apiUrl(`/api/rss?url=${encodeURIComponent(url)}`));
+    const res = await apiFetch(`/api/rss?url=${encodeURIComponent(url)}`);
     if (!res.ok) throw new Error(`local ${res.status}`);
     const data = await res.json();
     if (!data?.xml) throw new Error("local empty");
@@ -382,7 +426,7 @@
 
   async function fetchJson(url) {
     try {
-      const res = await fetch(apiUrl(`/api/json?url=${encodeURIComponent(url)}`));
+      const res = await apiFetch(`/api/json?url=${encodeURIComponent(url)}`);
       if (res.ok) return res.json();
     } catch {
       /* fall through */
@@ -743,7 +787,7 @@
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 60000);
-      const res = await fetch(apiUrl("/api/summarize"), {
+      const res = await apiFetch("/api/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -943,7 +987,7 @@
 
   async function loadBriefingStatus() {
     try {
-      const res = await fetch(apiUrl("/api/briefing/status"));
+      const res = await apiFetch("/api/briefing/status");
       const data = await res.json();
       const next = data.next_run_at
         ? new Date(data.next_run_at * 1000).toLocaleTimeString("en-US", {
@@ -971,7 +1015,7 @@
 
   async function loadLatestBriefing() {
     try {
-      const res = await fetch(apiUrl("/api/briefing/latest"));
+      const res = await apiFetch("/api/briefing/latest");
       if (res.ok) {
         const data = await res.json();
         if (!data.exists) {
@@ -981,8 +1025,13 @@
         }
         return;
       }
+      if (res.status === 401) return;
     } catch {
-      /* try static Pages fallback */
+      /* try static Pages fallback only when auth is not required */
+    }
+    if (authRequired) {
+      setLedText("Unlock desk to load Gemini briefing.");
+      return;
     }
     try {
       const res = await fetch(`./reports/latest.md?t=${Date.now()}`);
@@ -1000,7 +1049,7 @@
   async function loadBriefingHistory() {
     if (!els.historyList) return;
     try {
-      const res = await fetch(apiUrl("/api/briefing/history?limit=40"));
+      const res = await apiFetch("/api/briefing/history?limit=40");
       const data = await res.json();
       const items = data.items || [];
       if (!items.length) {
@@ -1028,7 +1077,7 @@
   async function openHistoryItem(id) {
     if (!id || !els.historyView) return;
     try {
-      const res = await fetch(apiUrl(`/api/briefing/item?id=${encodeURIComponent(id)}`));
+      const res = await apiFetch(`/api/briefing/item?id=${encodeURIComponent(id)}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       openHistoryPanel(data.markdown || "");
@@ -1048,7 +1097,7 @@
 
   els.btnHistoryLatest?.addEventListener("click", async () => {
     try {
-      const res = await fetch(apiUrl("/api/briefing/latest"));
+      const res = await apiFetch("/api/briefing/latest");
       const data = await res.json();
       if (!data.exists) {
         openHistoryPanel(data.hint || "No briefing yet.", { keepLed: false });
@@ -1061,6 +1110,101 @@
     }
   });
 
+
+  function showLock(message) {
+    if (!els.lockGate) return;
+    els.lockGate.hidden = false;
+    document.body.classList.add("locked");
+    if (els.lockError) {
+      els.lockError.textContent = message || "";
+      els.lockError.hidden = !message;
+    }
+    if (els.lockPassword) {
+      els.lockPassword.value = "";
+      setTimeout(() => els.lockPassword.focus(), 50);
+    }
+  }
+
+  function hideLock() {
+    if (!els.lockGate) return;
+    els.lockGate.hidden = true;
+    document.body.classList.remove("locked");
+    if (els.lockError) {
+      els.lockError.textContent = "";
+      els.lockError.hidden = true;
+    }
+    if (unlockResolver) {
+      const resolve = unlockResolver;
+      unlockResolver = null;
+      resolve(true);
+    }
+  }
+
+  function waitForUnlock() {
+    showLock("");
+    return new Promise((resolve) => {
+      unlockResolver = resolve;
+    });
+  }
+
+  async function probeAuth() {
+    try {
+      const res = await fetch(apiUrl("/api/auth/status"), {
+        headers: authHeaders(),
+      });
+      if (!res.ok) return { required: Boolean(API_BASE), authenticated: false };
+      return await res.json();
+    } catch {
+      return { required: Boolean(API_BASE), authenticated: !API_BASE };
+    }
+  }
+
+  async function ensureAuth() {
+    const status = await probeAuth();
+    authRequired = Boolean(status.required);
+    if (!authRequired) return true;
+    if (status.authenticated) {
+      hideLock();
+      return true;
+    }
+    await waitForUnlock();
+    return true;
+  }
+
+  async function submitLock(event) {
+    event?.preventDefault?.();
+    const password = (els.lockPassword?.value || "").trim();
+    if (!password) {
+      if (els.lockError) {
+        els.lockError.hidden = false;
+        els.lockError.textContent = "비밀번호를 입력하세요.";
+      }
+      return;
+    }
+    if (els.lockSubmit) els.lockSubmit.disabled = true;
+    try {
+      const res = await fetch(apiUrl("/api/auth/login"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "비밀번호가 틀렸습니다.");
+      }
+      setDeskToken(password);
+      hideLock();
+    } catch (err) {
+      if (els.lockError) {
+        els.lockError.hidden = false;
+        els.lockError.textContent = err?.message || String(err);
+      }
+    } finally {
+      if (els.lockSubmit) els.lockSubmit.disabled = false;
+    }
+  }
+
+  els.lockForm?.addEventListener("submit", submitLock);
 
   function startMatrixRain() {
     const canvas = document.getElementById("matrix-bg");
@@ -1102,6 +1246,28 @@
     });
   }
 
+  async function bootDesk() {
+    startMatrixRain();
+    renderWorldClocks();
+    setInterval(tickWorldClocks, 1000);
+    setActiveTab(state.category);
+    renderWatchCards();
+    renderBithumbCards();
+    renderMacroChips();
+    renderSources();
+    await ensureAuth();
+    loadLatestBriefing();
+    loadBriefingHistory();
+    loadBriefingStatus();
+    refresh();
+    setInterval(refresh, 5 * 60 * 1000);
+    setInterval(() => {
+      loadLatestBriefing();
+      loadBriefingHistory();
+      loadBriefingStatus();
+    }, 60 * 1000);
+  }
+
   els.refresh.addEventListener("click", refresh);
   els.summaryClose?.addEventListener("click", closeSummaryModal);
   els.summaryModal?.addEventListener("click", (e) => {
@@ -1111,22 +1277,5 @@
     if (e.key === "Escape") closeSummaryModal();
   });
 
-  startMatrixRain();
-  renderWorldClocks();
-  setInterval(tickWorldClocks, 1000);
-  setActiveTab(state.category);
-  renderWatchCards();
-  renderBithumbCards();
-  renderMacroChips();
-  renderSources();
-  loadLatestBriefing();
-  loadBriefingHistory();
-  loadBriefingStatus();
-  refresh();
-  setInterval(refresh, 5 * 60 * 1000);
-  setInterval(() => {
-    loadLatestBriefing();
-    loadBriefingHistory();
-    loadBriefingStatus();
-  }, 60 * 1000);
+  bootDesk();
 })();

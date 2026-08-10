@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import traceback
 from datetime import date, datetime, timezone
@@ -114,7 +115,17 @@ def main(argv: list[str] | None = None) -> int:
         md = fallback_report(today, payload)
 
     # 포트폴리오 섹션은 계산값으로 맨 위 고정 삽입 (텔레그램/파일 공통)
-    md = prepend_portfolio_section(md, payload.get("portfolio") or {})
+    # GitHub Pages 공개 커밋 등: BRIEFING_INCLUDE_PORTFOLIO=0 이면 제외
+    include_portfolio = os.getenv("BRIEFING_INCLUDE_PORTFOLIO", "1").strip().lower() not in {
+        "0",
+        "false",
+        "no",
+        "off",
+    }
+    if include_portfolio:
+        md = prepend_portfolio_section(md, payload.get("portfolio") or {})
+    else:
+        print("Portfolio section omitted (BRIEFING_INCLUDE_PORTFOLIO=0).")
 
     out = save_report(settings.report_dir, today, md)
     print(f"Report saved: {out}")

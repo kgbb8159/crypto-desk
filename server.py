@@ -5,9 +5,11 @@
 """
 from __future__ import annotations
 
+import hmac
 import json
 import mimetypes
 import os
+import secrets
 import ssl
 import subprocess
 import sys
@@ -25,6 +27,8 @@ UA = "SignalDeskBot/1.0 (+local rss aggregator)"
 REPORTS = ROOT / "reports"
 HISTORY = REPORTS / "history"
 BRIEFING_INTERVAL_SEC = 8 * 60 * 60
+DESK_PASSWORD = os.environ.get("DESK_PASSWORD", "").strip()
+PUBLIC_API_PATHS = {"/api/auth/status", "/api/auth/login"}
 _scheduler_state = {
     "running": False,
     "last_run_at": None,
@@ -35,6 +39,28 @@ _scheduler_state = {
 _run_lock = threading.Lock()
 _summary_cache: dict[str, dict] = {}
 _summary_lock = threading.Lock()
+
+
+def desk_auth_required() -> bool:
+    return bool(DESK_PASSWORD)
+
+
+def extract_desk_token(headers) -> str:
+    token = (headers.get("X-Desk-Token") or "").strip()
+    if token:
+        return token
+    auth = (headers.get("Authorization") or "").strip()
+    if auth.lower().startswith("bearer "):
+        return auth[7:].strip()
+    return ""
+
+
+def token_matches(token: str) -> bool:
+    if not DESK_PASSWORD:
+        return True
+    if not token:
+        return False
+    return hmac.compare_digest(token, DESK_PASSWORD)
 
 
 def clear_summary_cache() -> None:
@@ -248,11 +274,30 @@ class Handler(SimpleHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(204)
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header(
+            "Access-Control-Allow-Headers",
+            "Content-Type, X-Desk-Token, Authorization",
+        )
         self.end_headers()
+
+    def require_api_auth(self, path: str) -> bool:
+        if not path.startswith("/api/"):
+            return True
+        if path in PUBLIC_API_PATHS:
+            return True
+        if not desk_auth_required():
+            return True
+        if token_matches(extract_desk_token(self.headers)):
+            return True
+        self.json_response(401, {"error": "unauthorized", "auth_required": True})
+        return False
 
     def do_GET(self):
         parsed = urlparse(self.path)
+        if not self.require_api_auth(parsed.path):
+            return
+        if parsed.path == "/api/auth/status":
+            return self.handle_auth_status()
         if parsed.path == "/api/rss":
             return self.handle_rss(parsed.query)
         if parsed.path == "/api/json":
@@ -271,12 +316,41 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parsed = urlparse(self.path)
+        if not self.require_api_auth(parsed.path):
+            return
+        if parsed.path == "/api/auth/login":
+            return self.handle_auth_login()
         if parsed.path == "/api/briefing/run":
             return self.handle_briefing_run(parsed.query)
         if parsed.path == "/api/summarize":
             return self.handle_summarize()
         self.send_response(404)
         self.end_headers()
+
+    def handle_auth_status(self):
+        required = desk_auth_required()
+        authenticated = (not required) or token_matches(extract_desk_token(self.headers))
+        return self.json_response(
+            200,
+            {
+                "required": required,
+                "authenticated": authenticated,
+            },
+        )
+
+    def handle_auth_login(self):
+        if not desk_auth_required():
+            return self.json_response(200, {"ok": True, "required": False})
+        try:
+            body = self.read_json_body()
+        except ValueError as exc:
+            return self.json_response(400, {"error": str(exc)})
+        password = str(body.get("password") or "").strip()
+        if token_matches(password):
+            return self.json_response(200, {"ok": True, "required": True})
+        # slow down brute force a bit
+        time.sleep(0.4 + secrets.randbelow(300) / 1000)
+        return self.json_response(401, {"ok": False, "error": "wrong password"})
 
     def read_json_body(self) -> dict:
         length = int(self.headers.get("Content-Length") or "0")
@@ -507,6 +581,10 @@ def main():
     server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     print(f"CRYPTO DESK → http://0.0.0.0:{PORT}")
     print("Gemini briefing auto-run: every 8 hours")
+    if desk_auth_required():
+        print("Desk password auth: ON")
+    else:
+        print("Desk password auth: OFF (set DESK_PASSWORD to enable)")
     server.serve_forever()
 
 
