@@ -113,6 +113,7 @@
   const state = {
     items: [],
     prices: {},
+    bithumb: {},
     sourceStatus: {},
     category: "crypto",
     asset: null,
@@ -130,6 +131,7 @@
     search: document.getElementById("search"),
     sources: document.getElementById("source-list"),
     watchCards: document.getElementById("watch-cards"),
+    bithumbCards: document.getElementById("bithumb-cards"),
     assetFilters: document.getElementById("asset-filters"),
     macroChips: document.getElementById("macro-chips"),
     worldClocks: document.getElementById("world-clocks"),
@@ -411,6 +413,29 @@
     }
   }
 
+  async function loadBithumbPrices() {
+    try {
+      const data = await fetchJson("https://api.bithumb.com/public/ticker/ALL_KRW");
+      if (String(data?.status) !== "0000" || !data?.data) throw new Error("bithumb bad");
+      const next = {};
+      for (const w of WATCH) {
+        if (w.kind !== "crypto") continue;
+        const row = data.data[w.symbol];
+        if (!row || typeof row !== "object") continue;
+        const price = Number(row.closing_price);
+        const change = Number(row.fluctate_rate_24H);
+        if (!Number.isFinite(price)) continue;
+        next[w.symbol] = {
+          price,
+          change: Number.isFinite(change) ? change : null,
+        };
+      }
+      state.bithumb = next;
+    } catch (err) {
+      console.warn("bithumb", err);
+    }
+  }
+
   function formatPrice(n) {
     if (n == null || Number.isNaN(n)) return "—";
     if (n >= 1000) {
@@ -427,6 +452,23 @@
     }
     return `$${n.toLocaleString("en-US", {
       minimumFractionDigits: 4,
+      maximumFractionDigits: 4,
+    })}`;
+  }
+
+  function formatKrw(n) {
+    if (n == null || Number.isNaN(n)) return "—";
+    if (n >= 1000) {
+      return `₩${Math.round(n).toLocaleString("ko-KR")}`;
+    }
+    if (n >= 1) {
+      return `₩${n.toLocaleString("ko-KR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      })}`;
+    }
+    return `₩${n.toLocaleString("ko-KR", {
+      minimumFractionDigits: 2,
       maximumFractionDigits: 4,
     })}`;
   }
@@ -535,6 +577,36 @@
           setActiveTab(watch.kind === "stock" ? "stocks" : "crypto");
         }
         renderWatchCards();
+        renderBithumbCards();
+        renderFeed();
+      });
+    });
+  }
+
+  function renderBithumbCards() {
+    if (!els.bithumbCards) return;
+    const coins = WATCH.filter((w) => w.kind === "crypto");
+    els.bithumbCards.innerHTML = coins
+      .map((w) => {
+        const p = state.bithumb[w.symbol];
+        const chg = formatChange(p?.change);
+        const active = state.asset === w.symbol ? "active" : "";
+        return `
+        <button class="watch-tile bithumb-tile ${active} ${chg.cls}" type="button" data-asset="${w.symbol}" title="Bithumb ${w.name}">
+          <span class="watch-sym">${w.symbol}</span>
+          <span class="watch-chg ${chg.cls}">${chg.text}</span>
+          <span class="watch-price">${formatKrw(p?.price)}</span>
+        </button>`;
+      })
+      .join("");
+
+    els.bithumbCards.querySelectorAll(".watch-tile").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sym = btn.dataset.asset;
+        state.asset = state.asset === sym ? null : sym;
+        if (state.asset) setActiveTab("crypto");
+        renderWatchCards();
+        renderBithumbCards();
         renderFeed();
       });
     });
@@ -708,6 +780,7 @@
     const [batches] = await Promise.all([
       Promise.all(FEEDS.map((f) => loadFeed(f))),
       loadPrices().then(() => renderWatchCards()),
+      loadBithumbPrices().then(() => renderBithumbCards()),
     ]);
 
     const seen = new Set();
@@ -940,6 +1013,7 @@
   setInterval(tickWorldClocks, 1000);
   setActiveTab(state.category);
   renderWatchCards();
+  renderBithumbCards();
   renderMacroChips();
   renderSources();
   loadLatestBriefing();

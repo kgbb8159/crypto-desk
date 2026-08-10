@@ -403,6 +403,35 @@ body {
 .watch-chg.down { color: #3b82f6; }
 .watch-chg.flat { color: #8a9a94; }
 
+.bithumb-board {
+  padding: 0 clamp(16px, 4vw, 40px) 10px;
+}
+
+.bithumb-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.bithumb-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.08em;
+  color: #39ff14;
+}
+
+.bithumb-unit {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: rgba(157, 255, 176, 0.55);
+}
+
+.bithumb-tile {
+  border-color: rgba(57, 255, 20, 0.12);
+}
+
 .desk {
   display: grid;
   gap: 16px;
@@ -1130,7 +1159,19 @@ body.modal-open {
   }
 
   .watch-board {
-    padding: 4px 10px 6px;
+    padding: 4px 10px 4px;
+  }
+
+  .bithumb-board {
+    padding: 0 10px 6px;
+  }
+
+  .bithumb-label {
+    font-size: 0.34rem;
+  }
+
+  .bithumb-unit {
+    font-size: 0.58rem;
   }
 
   .watch-strip {
@@ -1138,10 +1179,18 @@ body.modal-open {
     gap: 4px;
   }
 
+  .bithumb-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .watch-tile {
     height: 58px;
     padding: 6px 8px;
     row-gap: 2px;
+  }
+
+  .bithumb-tile {
+    height: 52px;
   }
 
   .watch-sym { font-size: 0.62rem; }

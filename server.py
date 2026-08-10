@@ -448,6 +448,7 @@ class Handler(SimpleHTTPRequestHandler):
         host = (parsed.hostname or "").lower()
         allowed = (
             "api.coingecko.com",
+            "api.bithumb.com",
             "query1.finance.yahoo.com",
             "query2.finance.yahoo.com",
         )
@@ -485,8 +486,9 @@ def main():
     threading.Thread(
         target=briefing_scheduler, name="briefing-scheduler", daemon=True
     ).start()
-    server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     print(f"CRYPTO DESK → http://127.0.0.1:{PORT}")
+    print(f"Phone (same Wi-Fi) → http://<Mac-IP>:{PORT}")
     print("Gemini briefing auto-run: every 8 hours")
     server.serve_forever()
 
