@@ -649,6 +649,60 @@
     document.body.classList.remove("modal-open");
   }
 
+  function isStaticHost() {
+    const host = location.hostname || "";
+    return host.endsWith("github.io") || host === "github.com";
+  }
+
+  function isHttpUrl(value) {
+    if (!value || typeof value !== "string") return false;
+    try {
+      const u = new URL(value.trim());
+      return u.protocol === "http:" || u.protocol === "https:";
+    } catch {
+      return false;
+    }
+  }
+
+  function setSummarySourceLink(link) {
+    if (!els.summarySource) return;
+    if (isHttpUrl(link)) {
+      els.summarySource.setAttribute("href", link.trim());
+      els.summarySource.hidden = false;
+    } else {
+      els.summarySource.removeAttribute("href");
+      els.summarySource.hidden = true;
+    }
+  }
+
+  function localIssueSummary(item) {
+    const title = (item.title || "제목 없음").trim();
+    const source = (item.source || "출처 미상").trim();
+    const summary = (item.summary || "").trim();
+    const lines = [
+      "## 한줄 요약",
+      title,
+      "",
+      "## 핵심 포인트",
+      `- 출처: ${source}`,
+    ];
+    if (summary) lines.push(`- 피드 발췌: ${summary.slice(0, 420)}`);
+    else lines.push("- 피드 요약문이 없습니다.");
+    if (isHttpUrl(item.link)) lines.push(`- 원문: ${item.link}`);
+    lines.push(
+      "",
+      "## 왜 중요한가",
+      isStaticHost()
+        ? "GitHub Pages에는 Gemini 서버가 없습니다. 아이폰에서는 Mac 서버(http://맥IP:8787)로 접속하세요."
+        : "요약 서버에 연결하지 못해 로컬 추출만 표시합니다.",
+      "",
+      "## 다음에 볼 것",
+      "- 원문에서 세부 맥락 확인",
+      "- 워치리스트 관련 종목과 교차 점검"
+    );
+    return lines.join("\n");
+  }
+
   function openSummaryModalShell(item) {
     if (!els.summaryModal) return;
     els.summaryModal.hidden = false;
@@ -658,33 +712,50 @@
       els.summaryMeta.textContent = `${item.source || "출처"} · ${catLabel(item.category)} · Gemini 요약 중…`;
     }
     if (els.summaryBody) els.summaryBody.textContent = "Gemini가 이슈를 한국어로 정리하는 중…";
-    if (els.summarySource) {
-      if (item.link) {
-        els.summarySource.href = item.link;
-        els.summarySource.hidden = false;
-      } else {
-        els.summarySource.hidden = true;
-      }
-    }
+    setSummarySourceLink(item.link);
   }
 
   async function summarizeIssue(item) {
     openSummaryModalShell(item);
+
+    if (isStaticHost()) {
+      if (els.summaryBody) els.summaryBody.textContent = localIssueSummary(item);
+      if (els.summaryMeta) {
+        els.summaryMeta.textContent = `${item.source || "출처"} · ${catLabel(item.category)} · Pages(로컬 추출)`;
+      }
+      return;
+    }
+
     try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 60000);
       const res = await fetch("/api/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: item.title,
-          summary: item.summary,
-          link: item.link,
-          source: item.source,
-          category: item.category,
-          assets: item.assets || [],
+          title: item.title || "",
+          summary: item.summary || "",
+          link: isHttpUrl(item.link) ? item.link : "",
+          source: item.source || "",
+          category: item.category || "",
+          assets: Array.isArray(item.assets) ? item.assets : [],
         }),
+        signal: controller.signal,
       });
-      const data = await res.json();
-      if (!res.ok || data.error) throw new Error(data.error || `HTTP ${res.status}`);
+      clearTimeout(timer);
+
+      const raw = await res.text();
+      let data = null;
+      try {
+        data = raw ? JSON.parse(raw) : null;
+      } catch {
+        throw new Error(
+          `서버 응답이 JSON이 아닙니다 (HTTP ${res.status}). Mac에서 server.py가 켜져 있는지 확인하세요.`
+        );
+      }
+      if (!res.ok || !data || data.error) {
+        throw new Error((data && data.error) || `HTTP ${res.status}`);
+      }
       if (els.summaryBody) els.summaryBody.textContent = data.markdown || "요약 결과가 없습니다.";
       if (els.summaryMeta) {
         const mode = data.mode === "gemini" ? "Gemini" : "로컬 추출";
@@ -692,11 +763,14 @@
         els.summaryMeta.textContent = `${item.source || "출처"} · ${catLabel(item.category)} · ${mode}${cache}`;
       }
     } catch (err) {
+      const msg = err?.name === "AbortError"
+        ? "요약 요청 시간이 초과되었습니다."
+        : err?.message || String(err);
       if (els.summaryBody) {
-        els.summaryBody.textContent = `요약 실패: ${err.message || err}`;
+        els.summaryBody.textContent = `${localIssueSummary(item)}\n\n---\n요약 실패: ${msg}`;
       }
       if (els.summaryMeta) {
-        els.summaryMeta.textContent = `${item.source || "출처"} · 오류`;
+        els.summaryMeta.textContent = `${item.source || "출처"} · 오류(폴백)`;
       }
     }
   }
