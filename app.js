@@ -11,6 +11,7 @@
   const TOKEN_KEY = "crypto-desk-token";
   let authRequired = Boolean(API_BASE);
   let unlockResolver = null;
+  let unlockWait = null;
 
   function apiUrl(path) {
     return `${API_BASE}${path}`;
@@ -40,16 +41,60 @@
     return headers;
   }
 
-  async function apiFetch(path, options = {}) {
+  function ensureLockDom() {
+    let gate = document.getElementById("lock-gate");
+    if (gate) return gate;
+    gate = document.createElement("div");
+    gate.id = "lock-gate";
+    gate.className = "lock-gate";
+    gate.hidden = true;
+    gate.innerHTML = `
+      <form id="lock-form" class="lock-card" autocomplete="current-password">
+        <p class="lock-kicker">CRYPTO DESK</p>
+        <h2 class="lock-title">Unlock</h2>
+        <p class="lock-copy">비밀번호를 입력하면 브리핑·요약 API를 사용할 수 있습니다.</p>
+        <label class="lock-field">
+          <span>Password</span>
+          <input id="lock-password" type="password" name="password" inputmode="text" autocomplete="current-password" required>
+        </label>
+        <p id="lock-error" class="lock-error" hidden></p>
+        <button id="lock-submit" class="btn lock-submit" type="submit">Enter</button>
+      </form>`;
+    document.body.appendChild(gate);
+    document.getElementById("lock-form")?.addEventListener("submit", submitLock);
+    return gate;
+  }
+
+  function refreshLockEls() {
+    ensureLockDom();
+    els.lockGate = document.getElementById("lock-gate");
+    els.lockForm = document.getElementById("lock-form");
+    els.lockPassword = document.getElementById("lock-password");
+    els.lockError = document.getElementById("lock-error");
+    els.lockSubmit = document.getElementById("lock-submit");
+  }
+
+  async function apiFetch(path, options = {}, allowRetry = true) {
     const opts = { ...options };
     opts.headers = authHeaders(opts.headers);
     const res = await fetch(apiUrl(path), opts);
-    if (res.status === 401 && authRequired) {
-      setDeskToken("");
-      showLock("비밀번호가 필요하거나 만료되었습니다.");
-      throw new Error("로그인이 필요합니다");
+    if (res.status !== 401) return res;
+
+    let payload = null;
+    try {
+      payload = await res.clone().json();
+    } catch {
+      payload = null;
     }
-    return res;
+    if (payload?.auth_required || authRequired || API_BASE) {
+      authRequired = true;
+      setDeskToken("");
+      await promptUnlock("비밀번호가 필요하거나 만료되었습니다.");
+      if (allowRetry && getDeskToken()) {
+        return apiFetch(path, options, false);
+      }
+    }
+    throw new Error(payload?.error || "unauthorized");
   }
 
   const WATCH = [
@@ -1112,8 +1157,10 @@
 
 
   function showLock(message) {
+    refreshLockEls();
     if (!els.lockGate) return;
     els.lockGate.hidden = false;
+    els.lockGate.style.display = "grid";
     document.body.classList.add("locked");
     if (els.lockError) {
       els.lockError.textContent = message || "";
@@ -1126,8 +1173,10 @@
   }
 
   function hideLock() {
+    refreshLockEls();
     if (!els.lockGate) return;
     els.lockGate.hidden = true;
+    els.lockGate.style.display = "";
     document.body.classList.remove("locked");
     if (els.lockError) {
       els.lockError.textContent = "";
@@ -1136,15 +1185,28 @@
     if (unlockResolver) {
       const resolve = unlockResolver;
       unlockResolver = null;
+      unlockWait = null;
       resolve(true);
     }
   }
 
-  function waitForUnlock() {
-    showLock("");
-    return new Promise((resolve) => {
+  function promptUnlock(message) {
+    if (getDeskToken() && !message) {
+      return Promise.resolve(true);
+    }
+    if (unlockWait) {
+      showLock(message || "");
+      return unlockWait;
+    }
+    showLock(message || "");
+    unlockWait = new Promise((resolve) => {
       unlockResolver = resolve;
     });
+    return unlockWait;
+  }
+
+  function waitForUnlock() {
+    return promptUnlock("");
   }
 
   async function probeAuth() {
@@ -1152,18 +1214,26 @@
       const res = await fetch(apiUrl("/api/auth/status"), {
         headers: authHeaders(),
       });
-      if (!res.ok) return { required: Boolean(API_BASE), authenticated: false };
+      if (!res.ok) return { required: true, authenticated: false };
       return await res.json();
     } catch {
-      return { required: Boolean(API_BASE), authenticated: !API_BASE };
+      // Fail closed so unlock UI still appears.
+      return { required: true, authenticated: false };
     }
   }
 
   async function ensureAuth() {
+    // Always present unlock on Pages until we confirm a valid token.
+    if (API_BASE && !getDeskToken()) {
+      showLock("");
+    }
     const status = await probeAuth();
-    authRequired = Boolean(status.required);
-    if (!authRequired) return true;
-    if (status.authenticated) {
+    authRequired = Boolean(status.required) || Boolean(API_BASE);
+    if (!authRequired) {
+      hideLock();
+      return true;
+    }
+    if (status.authenticated && getDeskToken()) {
       hideLock();
       return true;
     }
