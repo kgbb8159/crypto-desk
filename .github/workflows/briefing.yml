@@ -24,6 +24,23 @@ jobs:
           python -m pip install -U pip
           pip install -r requirements.txt
 
+      - name: Write portfolio config
+        env:
+          PORTFOLIO_CONFIG: ${{ secrets.PORTFOLIO_CONFIG }}
+        run: |
+          if [ -z "$PORTFOLIO_CONFIG" ]; then
+            echo "PORTFOLIO_CONFIG secret missing — briefing will show 평단가 미설정"
+            exit 0
+          fi
+          printf '%s\n' "$PORTFOLIO_CONFIG" > config.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("config.json").read_text(encoding="utf-8"))
+          n = len(data.get("holdings") or {})
+          print(f"portfolio holdings loaded: {n}")
+          PY
+
       - name: Run briefing
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
