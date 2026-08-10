@@ -166,26 +166,32 @@ def summarize_with_llm(settings: Settings, today: date, payload: dict[str, Any])
 ARTICLE_SYSTEM_PROMPT = """너는 가상자산·매크로 리서치 데스크 애널리스트다.
 뉴스 1건만 요약한다. 제공된 필드만 근거로 쓰고, 없는 사실·수치·인용은 만들지 않는다.
 정보가 부족하면 짧게 '확인 필요'라고 한다.
-한국어로, 짧고 실행 가능하게 정리한다.
+
+언어 규칙(필수):
+- 출력은 반드시 한국어만 사용한다.
+- 원문이 영어여도 제목·본문을 한국어로 번역·정리한다.
+- 영어 문장, 영어 섹션 제목, 영어 불릿을 쓰지 않는다. (티커·고유명사는 예외: BTC, Fed, ETF 등)
+- 짧고 실행 가능하게 쓴다.
 """
 
 
 def build_article_prompt(article: dict[str, Any]) -> str:
     return f"""CRYPTO DESK용으로 아래 헤드라인을 한국어로 요약해라.
+원문 언어와 무관하게 결과 전체를 한국어로 작성해라. 영어 요약을 출력하지 마라.
 
-Markdown만 출력하고, 아래 형식을 그대로 따른다:
+Markdown만 출력하고, 아래 한글 섹션 헤더를 그대로 따른다:
 
 ## 한줄 요약
-(1-2문장)
+(한국어 1-2문장. 영어 제목을 직역하지 말고 의미 중심으로)
 
 ## 핵심 포인트
-- 짧은 불릿 3개
+- 한국어 불릿 3개
 
 ## 왜 중요한가
-(시장/매크로/크립토 영향 2-4문장)
+(시장/매크로/크립토 영향, 한국어 2-4문장)
 
 ## 다음에 볼 것
-- 짧은 불릿 2개
+- 한국어 불릿 2개
 
 기사 JSON:
 ```json
@@ -199,13 +205,25 @@ def summarize_article_with_gemini(settings: Settings, article: dict[str, Any]) -
         raise RuntimeError("GEMINI_API_KEY is required.")
 
     from google import genai
+    from google.genai import types
 
     client = genai.Client(api_key=settings.gemini_api_key)
-    prompt = f"{ARTICLE_SYSTEM_PROMPT}\n\n{build_article_prompt(article)}"
-    response = client.models.generate_content(
-        model=settings.gemini_model,
-        contents=prompt,
-    )
+    prompt = build_article_prompt(article)
+    try:
+        response = client.models.generate_content(
+            model=settings.gemini_model,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=ARTICLE_SYSTEM_PROMPT,
+                temperature=0.2,
+            ),
+        )
+    except TypeError:
+        # older SDK fallback
+        response = client.models.generate_content(
+            model=settings.gemini_model,
+            contents=f"{ARTICLE_SYSTEM_PROMPT}\n\n{prompt}",
+        )
     text = getattr(response, "text", None)
     if not text:
         try:

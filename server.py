@@ -37,6 +37,11 @@ _summary_cache: dict[str, dict] = {}
 _summary_lock = threading.Lock()
 
 
+def clear_summary_cache() -> None:
+    with _summary_lock:
+        _summary_cache.clear()
+
+
 def ssl_context() -> ssl.SSLContext:
     try:
         import certifi  # type: ignore
@@ -304,6 +309,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self.json_response(400, {"error": "title required"})
 
         cache_key = article["link"] or article["title"]
+        # bust stale English cache entries after prompt change
+        cache_key = f"ko-v2::{cache_key}"
         with _summary_lock:
             cached = _summary_cache.get(cache_key)
             if cached:
