@@ -245,14 +245,14 @@ def fallback_article_summary(article: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def summarize_article(settings: Settings, article: dict[str, Any]) -> tuple[str, str]:
-    """Returns (markdown, mode) where mode is gemini|fallback."""
+def summarize_article(settings: Settings, article: dict[str, Any]) -> tuple[str, str, str]:
+    """Returns (markdown, mode, error) where mode is gemini|fallback."""
+    if not settings.gemini_api_key:
+        return fallback_article_summary(article), "fallback", "GEMINI_API_KEY missing"
     try:
-        if settings.gemini_api_key:
-            return summarize_article_with_gemini(settings, article), "gemini"
-    except Exception:
-        pass
-    return fallback_article_summary(article), "fallback"
+        return summarize_article_with_gemini(settings, article), "gemini", ""
+    except Exception as exc:  # noqa: BLE001
+        return fallback_article_summary(article), "fallback", str(exc)
 
 
 def fallback_report(today: date, payload: dict[str, Any]) -> str:

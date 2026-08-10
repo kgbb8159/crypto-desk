@@ -68,7 +68,7 @@ def get_settings() -> Settings:
         anthropic_api_key=os.getenv("ANTHROPIC_API_KEY", "").strip(),
         anthropic_model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514").strip(),
         gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip(),
-        gemini_model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip(),
+        gemini_model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash").strip(),
         cryptopanic_api_key=os.getenv("CRYPTOPANIC_API_KEY", "").strip(),
         fred_api_key=os.getenv("FRED_API_KEY", "").strip(),
         telegram_bot_token=telegram_token,

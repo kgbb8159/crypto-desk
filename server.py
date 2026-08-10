@@ -313,11 +313,12 @@ class Handler(SimpleHTTPRequestHandler):
             from briefing.summarizer import summarize_article
 
             settings = get_settings()
-            markdown, mode = summarize_article(settings, article)
+            markdown, mode, err = summarize_article(settings, article)
             payload = {
                 "ok": True,
                 "markdown": markdown,
                 "mode": mode,
+                "error_detail": err,
                 "title": article["title"],
                 "link": article["link"],
                 "source": article["source"],
