@@ -7,13 +7,15 @@ primary_region = 'nrt'
 
 [env]
   PORT = '8787'
+  # Briefing is produced by GitHub Actions; don't burn Gemini/CPU on a waking VM.
+  SKIP_BRIEFING_SCHEDULER = '1'
 
 [http_service]
   internal_port = 8787
   force_https = true
-  auto_stop_machines = 'off'
+  auto_stop_machines = 'stop'
   auto_start_machines = true
-  min_machines_running = 1
+  min_machines_running = 0
   processes = ['app']
 
 [[vm]]

@@ -77,7 +77,14 @@
   async function apiFetch(path, options = {}, allowRetry = true) {
     const opts = { ...options };
     opts.headers = authHeaders(opts.headers);
+    let wakeTimer = null;
+    if (!opts.signal && API_BASE) {
+      const controller = new AbortController();
+      opts.signal = controller.signal;
+      wakeTimer = setTimeout(() => controller.abort(), 90000);
+    }
     const res = await fetch(apiUrl(path), opts);
+    if (wakeTimer) clearTimeout(wakeTimer);
     if (res.status !== 401) return res;
 
     let payload = null;
@@ -800,7 +807,7 @@
 
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 60000);
+      const timer = setTimeout(() => controller.abort(), 90000);
       const res = await apiFetch("/api/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -991,6 +998,12 @@
   }
 
   async function loadBriefingStatus() {
+    if (API_BASE) {
+      if (els.briefingSchedule) {
+        els.briefingSchedule.textContent = "AUTO · Actions 8h";
+      }
+      return;
+    }
     try {
       const res = await apiFetch("/api/briefing/status");
       const data = await res.json();
@@ -1019,6 +1032,22 @@
   }
 
   async function loadLatestBriefing() {
+    // Pages already has the Actions-published briefing. Prefer it so a sleeping
+    // Fly VM is not woken just to paint the LED board.
+    if (API_BASE) {
+      try {
+        const res = await fetch(`./reports/latest.md?t=${Date.now()}`);
+        if (res.ok) {
+          const md = await res.text();
+          if (md.trim()) {
+            setLedText(formatBriefingPanel(md));
+            return;
+          }
+        }
+      } catch {
+        /* fall through to cloud */
+      }
+    }
     try {
       const res = await apiFetch("/api/briefing/latest");
       if (res.ok) {
@@ -1032,11 +1061,7 @@
       }
       if (res.status === 401) return;
     } catch {
-      /* try static Pages fallback only when auth is not required */
-    }
-    if (authRequired) {
-      setLedText("Unlock desk to load Gemini briefing.");
-      return;
+      /* try static Pages fallback */
     }
     try {
       const res = await fetch(`./reports/latest.md?t=${Date.now()}`);

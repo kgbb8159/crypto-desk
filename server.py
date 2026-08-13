@@ -575,12 +575,22 @@ def main():
     else:
         _scheduler_state["next_run_at"] = time.time()
 
-    threading.Thread(
-        target=briefing_scheduler, name="briefing-scheduler", daemon=True
-    ).start()
+    skip_scheduler = os.environ.get("SKIP_BRIEFING_SCHEDULER", "").strip().lower() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+    }
+    if skip_scheduler:
+        print("Gemini briefing scheduler: OFF (GitHub Actions owns the 8h run)")
+    else:
+        threading.Thread(
+            target=briefing_scheduler, name="briefing-scheduler", daemon=True
+        ).start()
     server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     print(f"CRYPTO DESK → http://0.0.0.0:{PORT}")
-    print("Gemini briefing auto-run: every 8 hours")
+    if not skip_scheduler:
+        print("Gemini briefing auto-run: every 8 hours")
     if desk_auth_required():
         print("Desk password auth: ON")
     else:
