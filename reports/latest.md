@@ -8,26 +8,27 @@
 - SPX: 7811.54 (0.595%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 82916.1562, 'chg_pct_1d': 0.448, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+- BTC: {'last': 83054.6016, 'chg_pct_1d': 0.172, 'symbol': 'BTC-USD', 'source': 'yahoo'}
   - One year after 10/10 flash crash, bitcoin and ether liquidity have rebuilt, but altcoins still face risks
   - Bitcoin's $19 billion wake-up call: One-year after flash crash, has crypto learned anything?
   - Bitcoin's volatility has plunged, but extreme price swings are more frequent than in 2018
-- ETH: {'last': 2504.97, 'chg_pct_1d': 0.782, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-- SOL: {'last': 109.57, 'chg_pct_1d': 0.394, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+- ETH: {'last': 2504.1899, 'chg_pct_1d': 0.006, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+- SOL: {'last': 109.51, 'chg_pct_1d': -0.476, 'symbol': 'SOL-USD', 'source': 'yahoo'}
   - Solana is about to halve its block times as final 200-millisecond upgrade nears
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
 - CRCL price: {'last': 84.51, 'chg_pct_1d': 4.54, 'symbol': 'CRCL', 'source': 'yahoo'}
 - CRCL tvl: None
-- ONDO price: {'last': 0.4869, 'chg_pct_1d': 0.837, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO price: {'last': 0.4888, 'chg_pct_1d': -1.352, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
 - ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 12.937, 'chg_pct_1d': 1.016, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1966365218.0, 'tvl_chg_pct_approx': -0.129, 'url': 'https://defillama.com/protocol/chainlink'}
+- LINK price: {'last': 13.063, 'chg_pct_1d': 0.407, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1973234796.0, 'tvl_chg_pct_approx': 0.22, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 282.6, 'chg_pct_1d': 1.999}
+- TAO: {'source': 'coingecko', 'last': 288.39, 'chg_pct_1d': 1.608}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
+- 구루 멘션 1건 확인
 - 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
 - CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
