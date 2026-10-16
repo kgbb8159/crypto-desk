@@ -1,26 +1,35 @@
 # 📅 [2026-10-16] 크립토 & 매크로 모닝 브리핑
 
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+
 ## 1. 🌐 거시경제 & 매크로 지표
-- **DXY / 국채금리**: 달러인덱스(DXY)는 102.01(-0.53%), 미 10년물 국채금리는 5.09%(-1.95%)로 하락했고 S&P500은 7,744.06(+0.33%)을 기록했습니다.
-- **CPI 및 연준 금리 경로**: 예상보다 뜨겁게 나온 미 9월 CPI(소비자물가지수) 여파로 연준의 금리 인하 경로에 대한 불확실성이 커졌습니다. 이에 따라 가상자산 시장 급락과 아시아 증시(코스피 -8% 등) 폭락이 동반 발생하는 등 매크로 불안정성이 단기 변동성을 키우고 있습니다.
+- DXY: 101.802 (-0.194%)
+- US10Y: 5.106 (0.334%)
+- SPX: 7744.0601 (0.325%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC**: $81,903.81 (+0.42%). CPI 쇼크 및 증시 동반 급락으로 한때 1개월래 처음 $80,000를 하회했으나 $82,000선으로 반등했습니다. 매도세 속 약 10억 달러 규모의 암호화폐 선물 레버리지가 청산되었으며, 해시레이트 65% 폭락으로 점유율 2.3% 규모의 마이닝 풀이 폐쇄되었습니다. (현물 ETF 일일 수급은 데이터 차단으로 '확인 필요', 블랙록 크립토 ETF 자산은 전년 대비 63% 증가).
-- **ETH**: $2,433.87 (+0.65%). 대규모 청산 장세 속에 $2,400선을 지키며 소폭 반등했습니다. (현물 ETF 세부 수급은 '확인 필요').
-- **SOL**: $105.04 (+0.93%). TVL은 약 59.8억 달러(+0.62%)를 나타내며 가격과 함께 소폭 회복세를 보이고 있습니다.
-- **XRP**: $1.3306 (+0.06%). 대규모 청산 릴레이 속에 단기 변동성을 겪은 후 제자리걸음을 이어가고 있습니다.
+- BTC: {'last': 81867.0078, 'chg_pct_1d': -0.334, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat
+  - Altcoins outpace bitcoin as celestia jumps 16%, Warsh silent on interest-rate plans
+  - Scammer gets scammed in Ledger spy-chip exploit, loses almost $5 million in bitcoin
+- ETH: {'last': 2456.8701, 'chg_pct_1d': 0.672, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - An OpenAI agent ran out of Ethereum funds, and took from a wallet it did not own
+- SOL: {'last': 105.35, 'chg_pct_1d': 0.018, 'symbol': 'SOL-USD', 'source': 'yahoo'}
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL**: $86.97 (+9.33%). 9% 넘는 반등세를 기록했으나, 실적 발표 및 Arc 메인넷 관련 신규 지표는 '확인 필요'.
-- **ONDO**: $0.4636 (+4.33%). 전 FTX 유럽 대표의 SEC 면제 활용 미국 토큰화 주식 거래 추진 등 RWA 생태계 확장에 힘입어 상승세를 유지 중입니다. (TVL 수치는 '확인 필요').
-- **LINK**: $12.418 (-0.01%). TVL 약 19.4억 달러(-0.06%) 수준을 유지하고 있습니다.
+- CRCL price: {'last': 86.97, 'chg_pct_1d': 9.327, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+  - Circle targets 40 new markets as stablecoin demand grows globally
+- ONDO price: {'last': 0.4658, 'chg_pct_1d': -0.475, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 12.558, 'chg_pct_1d': 0.853, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1941997936.0, 'tvl_chg_pct_approx': 0.054, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO**: $282.51 (+8.51%). 글로벌 AI 및 증시 매도세 속에서도 8% 이상 강한 반등을 나타냈습니다. (서브넷 및 AI 칩 연동 관련 신규 헤드라인은 '확인 필요').
+- TAO: {'source': 'coingecko', 'last': 285.27, 'chg_pct_1d': 10.137}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 9월 CPI 상회 및 연준 금리 향방 불확실성으로 약 $10억 달러 규모의 레버리지 청산 발생.
-- BTC $80,000선 하방 지지력 및 해시레이트 감소에 따른 채굴 생태계 위축 영향 점검 필요.
-- 매크로 충격 속에서도 RWA(ONDO, CRCL) 및 AI(TAO) 섹터가 상대적 강세를 보임.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 수익권인 ONDO(+27.8%)와 TAO(+11.9%)의 일부 이익 실현을 고려하되, 손실폭이 큰 메이저(XRP, SOL, ETH, BTC)는 BTC $80k 지지 여부를 확인하며 신규 분할 매수는 보수적으로 접근하는 것을 권장합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
