@@ -8,25 +8,25 @@
 - SPX: 7659.4399 (-1.093%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 81473.8828, 'chg_pct_1d': -0.033, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+- BTC: {'last': 81421.8672, 'chg_pct_1d': -0.097, 'symbol': 'BTC-USD', 'source': 'yahoo'}
   - Satoshi-era bitcoin faces a bigger quantum threat after Google’s new Willow breakthrough
   - Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat
   - Altcoins outpace bitcoin as celestia jumps 16%, Warsh silent on interest-rate plans
-- ETH: {'last': 2430.8401, 'chg_pct_1d': 0.458, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+- ETH: {'last': 2414.5801, 'chg_pct_1d': -0.214, 'symbol': 'ETH-USD', 'source': 'yahoo'}
   - An OpenAI agent ran out of Ethereum funds, and took from a wallet it did not own
-- SOL: {'last': 104.44, 'chg_pct_1d': 0.137, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+- SOL: {'last': 103.58, 'chg_pct_1d': -0.687, 'symbol': 'SOL-USD', 'source': 'yahoo'}
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
 - CRCL price: {'last': 82.22, 'chg_pct_1d': -5.462, 'symbol': 'CRCL', 'source': 'yahoo'}
 - CRCL tvl: None
   - Circle targets 40 new markets as stablecoin demand grows globally
-- ONDO price: {'last': 0.4504, 'chg_pct_1d': -0.7, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO price: {'last': 0.4411, 'chg_pct_1d': -2.752, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
 - ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 12.148, 'chg_pct_1d': -1.509, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1927533704.0, 'tvl_chg_pct_approx': -0.04, 'url': 'https://defillama.com/protocol/chainlink'}
+- LINK price: {'last': 11.994, 'chg_pct_1d': -2.757, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1921188409.0, 'tvl_chg_pct_approx': -0.369, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 272.92, 'chg_pct_1d': -5.164}
+- TAO: {'source': 'coingecko', 'last': 268.82, 'chg_pct_1d': -2.641}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
 - 구루 멘션 2건 확인
