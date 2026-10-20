@@ -1,26 +1,34 @@
-# 📅 [2026-10-19] 크립토 & 매크로 모닝 브리핑
+# 📅 [2026-10-20] 크립토 & 매크로 모닝 브리핑
+
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- **매크로 지표**: DXY(달러인덱스) 102.00(+0.16%), US10Y(미 10년물 국채금리) 5.14%(+0.75%), S&P500 7,690.73(+0.41%).
-- **시장 동향**: 중국 GDP 호조에 따른 아시아·미 증시 반등으로 지난주 금요일의 공포 심리가 다소 완화되었습니다. 다만 미 국채금리가 5.14% 수준을 유지하고 인플레이션 우려가 남아있어, 이번 주 글로벌 PMI 발표 및 연준의 향후 금리 경로 커뮤니케이션에 주목할 필요가 있습니다.
+- DXY: 101.98 (0.137%)
+- US10Y: 5.136 (0.745%)
+- SPX: 7690.73 (0.409%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($81,868.63, -0.18%)**: 나스닥 반등 속에 $82,000 선을 회복·지지 중입니다. 마이크로스트래티지 차트의 골든크로스 임박 호재와 2013년 매수된 고래 물량($3,400만 상당)의 이동이 포착되었습니다. 현물 ETF 수급 데이터는 원시 출처 접근 제한으로 '확인 필요'.
-- **ETH ($2,396.94, -0.49%)**: JP모건이 달러 예금 연동 'JPM 코인'을 이더리움 블록체인 네트워크로 확장 도입한다는 소식이 호재로 작용하고 있습니다.
-- **SOL ($104.28, +0.25%)**: 소폭 반등 흐름을 보였으며, 온체인 TVL은 약 58.18억 달러(-1.31%)를 기록 중입니다.
-- **XRP ($1.2982, -0.52%)**: XRP 레저(XRPL) 대출 기능 정식 출시 전 코드 결함 수정 작업이 진행 중입니다.
+- BTC: {'last': 82052.0781, 'chg_pct_1d': 0.042, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Strategy's price chart is about to flash a major bullish signal weeks after bitcoin did
+  - Live updates: Bitcoin holds near $82,000 as Nasdaq rebounds more than 1%
+  - Bitcoin extends bounce above $82,000 as stocks rebound, DeFi tokens lead altcoin gains
+- ETH: {'last': 2411.6001, 'chg_pct_1d': 0.119, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - JPMorgan brings JPM Coin, representing dollar deposits, to Ethereum
+- SOL: {'last': 105.18, 'chg_pct_1d': 1.111, 'symbol': 'SOL-USD', 'source': 'yahoo'}
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($81.37, -1.03%) & 서클**: 서클 CEO 제레미 알레어(Jeremy Allaire)는 동남아, 남미, 아프리카 등 신흥 시장 수요 증가에 맞춰 약 40개국 진출을 추진 중이라고 밝혔습니다.
-- **RWA 주요 이슈**: SEC의 토큰화 주식 프레임워크에 대해 브로드컴·베리즌 등 주요 기업들이 상장 반대 의사를 표명했습니다. 
-- **LINK / ONDO**: LINK TVL은 약 19.56억 달러(+2.16%)로 상승세를 나타냈으며, ONDO는 $0.4291(-1.19%)를 기록했습니다.
+- CRCL price: {'last': 81.37, 'chg_pct_1d': -1.034, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.4425, 'chg_pct_1d': 1.904, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 12.09, 'chg_pct_1d': 0.541, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1960527247.0, 'tvl_chg_pct_approx': -0.024, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($264.39, +3.17%)**: 미 증시 반도체/AI 주식 리바운드와 맞물려 3%대 강세를 나타냈습니다. 세부 서브넷별 단독 이슈 및 온체인 수치 변화는 데이터 미제공으로 '확인 필요'.
+- TAO: {'source': 'coingecko', 'last': 268.39, 'chg_pct_1d': -1.192}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. 비트코인의 $82,000 지지 여부 및 기술주 반등 지속성 확인.
-2. JP모건의 이더리움 기반 JPM 코인 도입 및 서클의 신흥국 확장에 따른 기관 자금 유입 흐름 주시.
-3. 5.14%대 미 10년물 국채금리 부담 속 이번 주 글로벌 PMI 등 매크로 지표 발표 체크.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 전체 포트폴리오(-26.6%) 중 수익권인 ONDO(+17.3%)와 TAO(+3.8%)는 분할 익절 기회를 모니터링하고, 평가손실이 큰 XRP(-59.9%)·SOL(-39.2%)·ETH(-36.0%) 등은 비트코인 $82,000 지지 여부를 확인하며 신규 물량 추가 없이 보수적으로 관망하는 것을 권장합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
