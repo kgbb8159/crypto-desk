@@ -1,26 +1,35 @@
 # 📅 [2026-10-22] 크립토 & 매크로 모닝 브리핑
 
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+
 ## 1. 🌐 거시경제 & 매크로 지표
-- **주요 지표**: DXY 101.805 (+0.03%) | 미 10년물 국채금리(US10Y) 5.04% (-2.06%) | S&P 500 7,696.24 (-0.79%)
-- **매크로 요약**: 테슬라·메타 등의 AI 수익성 의구심과 기술주 매도세, 중동 지정학적 불안 및 유가 상승으로 글로벌 리스크 오프(위험자산 회피) 심리가 강화되었습니다. 중국 증시가 약세장에 진입하고 아시아 증시가 급락하면서 위험자산 전반에 하방 압력이 작용하고 있으며, 연준의 금리 경로는 관망세가 유지되는 가운데 미 10년물 국채금리는 5.04% 수준으로 하락했습니다.
+- DXY: 101.604 (-0.173%)
+- US10Y: 4.953 (-3.75%)
+- SPX: 7648.9102 (-1.396%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($81,810.27, -2.62%)**: $85,000선 돌파 실패 후 AI발 위험자산 매도세로 인해 $82,000 선 밑으로 후퇴했습니다. 최근 3일간 현물 ETF로 10.8억 달러가 유입되었으나 강력한 상승 동력으로는 이어지지 못했습니다. 중국 당국의 $57억 규모 사기 사건 관련 61,800 BTC 몰수 추진 이슈 및 스페이스X-테슬라 합병 검토(3만 개 이상의 BTC 보유 통합 가능성)가 시장의 주목을 받았습니다.
-- **ETH ($2,409.68, -2.47%)**: 가상자산 전송 비용을 낮추기 위한 '4분 정산(Four-minute settlement) 계획'이 공개되었으나 매크로 악재로 가격은 약세를 보였습니다.
-- **SOL ($104.96, -1.72%)**: 2020년 이후 가장 큰 규모의 네트워크 변경인 '알펜글로우(Alpenglow)' 업그레이드가 라이브 적용되었습니다. TVL은 약 58.8억 달러(-1.38%)를 기록 중입니다.
-- **XRP ($1.33, -2.67%)**: 검증인 지지율이 일시적으로 감소함에 따라 XRPL 버그 수정 일정이 11월로 연기되었습니다.
+- BTC: {'last': 81297.2109, 'chg_pct_1d': -3.231, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Crypto traders seek shelter in bitcoin as altcoins slide and ETF flows wobble
+  - Bitcoin slides below $82,000 as AI doubts return, with DeFi tokens leading declines
+  - Live updates: Bitcoin falls back to $81,000, with interest rates tumbling as stocks crack
+- ETH: {'last': 2379.0601, 'chg_pct_1d': -3.712, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - Ethereum’s four-minute settlement plan could lower the cost of moving crypto
+- SOL: {'last': 103.34, 'chg_pct_1d': -3.234, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+  - Solana’s biggest network change since 2020 is live. Here’s how users benefit
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($85.17, -5.06%)**: 주가 하락세가 지속 중이며 서클/Arc 메인넷 관련 신규 헤드라인은 발표되지 않았습니다 (확인 필요).
-- **ONDO ($0.4351, -5.39%)**: RWA 시장 전반의 투심 위축으로 하락 조정 중이며 특이 호재 뉴스는 없습니다 (확인 필요).
-- **LINK ($12.05, -3.45%)**: DefiLlama 기준 TVL은 약 19.9억 달러(-1.62%)를 기록했으며, 섹터 약세와 연동되어 하락세를 보였습니다.
+- CRCL price: {'last': 86.15, 'chg_pct_1d': -3.968, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.4282, 'chg_pct_1d': -6.881, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 11.944, 'chg_pct_1d': -4.331, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1992355930.0, 'tvl_chg_pct_approx': -1.706, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($260.53, -3.89%)**: 서브넷 관련 직접적인 단기 뉴스는 없으나(확인 필요), 테슬라·메타 등 빅테크의 AI 관련 우려 및 증시 내 AI 섹터 매도세의 여파로 하방 압력을 받고 있습니다.
+- TAO: {'source': 'coingecko', 'last': 255.87, 'chg_pct_1d': -7.013}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. 빅테크 AI 수익성 우려 및 유가·지정학적 리스크로 인한 위험자산 매도세가 크립토 시장의 $82,000선 이탈을 유발했습니다.
-2. BTC 현물 ETF 자금 유입에도 불구하고 거래자들이 알트코인에서 BTC로 피신하면서 알트코인 전반의 낙폭이 심화되었습니다.
-3. SOL의 '알펜글로우' 업그레이드 완료 외에는 주요 알트코인의 온체인 모멘텀이 약화된 상황이므로 매크로 하방 리스크 관리 중심의 접근이 필요합니다.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: ONDO(+18.4%)·TAO(+1.9%)가 수익권이나 전체 손실(-25.4%)이 지속되는 구간이므로, 신규 추가 매수보다는 매크로 반등 시 XRP(-59.2%)·SOL(-39.0%)·ETH(-36.0%) 등 손실 폭이 큰 알트코인의 비중을 단계적으로 줄여 현금을 확보하는 관망 전략을 권장합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
