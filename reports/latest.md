@@ -1,34 +1,27 @@
-# 📅 [2026-10-25] 크립토 & 매크로 모닝 브리핑
-
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+# 📅 [2026-10-26] 크립토 & 매크로 모닝 브리핑
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 101.81 (0.197%)
-- US10Y: 4.988 (0.707%)
-- SPX: 7623.6802 (-0.519%)
+- **DXY (달러인덱스):** 101.624 (-0.18%)로 소폭 하락하며 약보합세를 보였습니다.
+- **US10Y (미 10년물 국채금리):** 4.988% (+0.71%)로 5%선에 바짝 다가서며 위험자산 시장 전반에 금리 압박을 가하고 있습니다.
+- **지정학적 리스크 & 유가:** 중동 지역의 미국인 철수 소식과 국제유가 상승(배럴당 100달러 육박)으로 증시(S&P500 -0.52%) 및 암호화폐 시장의 단기 변동성이 증대되었습니다.
+- **연준 금리 경로:** 고금리 장기화 우려 속에 미 국채 금리 상승세가 지속되고 있어 당분간 매크로 불확실성이 시장을 주도할 것으로 전망됩니다.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 80592.8906, 'chg_pct_1d': -0.245, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends
-  - Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East evacuations
-  - Bitcoin’s wealthy holders turning to loans and yield as investment habits mature: Xapo CEO
-- ETH: {'last': 2354.3601, 'chg_pct_1d': -0.068, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - Ethereum delays Glamsterdam test after security devs flag risk to existing contracts
-- SOL: {'last': 101.86, 'chg_pct_1d': -0.403, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+- **BTC ($79,353, -1.78%):** 지정학적 악재로 주말 중 8만 달러 선이 무너졌습니다. 현물 ETF 수급은 10월 초 대규모 유출 후 소폭 유입(+2,110만 달러)으로 전환되었으나 유동성은 여전히 위축되어 있습니다. (XRP는 프랭클린 템플턴의 1.5억 달러 규모 XRP 레저 펀드 지금 추가 호재 반영)
+- **ETH ($2,293.82, -2.64%):** 보안 개발진의 기존 스마트 계약 위험 지적으로 Glamsterdam 테스트넷 일정이 연기되며 가격 약세를 보였습니다.
+- **SOL ($99.87, -2.35%):** 100달러 선을 하회했으며 TVL은 약 56.97억 달러(-1.28%)를 기록했습니다. (단기 특이 뉴스는 확인 필요)
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 85.91, 'chg_pct_1d': -0.82, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-- ONDO price: {'last': 0.4093, 'chg_pct_1d': -0.049, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 11.524, 'chg_pct_1d': -0.786, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1975675191.0, 'tvl_chg_pct_approx': -0.317, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL ($85.91, -0.82%):** 실적 및 Arc 메인넷 관련 신규 헤드라인은 부재한 상태입니다. (확인 필요)
+- **ONDO ($0.4002, -2.27%):** 온체인 TVL 및 추가 호재 뉴스는 확인이 필요하나, 타 알트코인 대비 상대적 가격 방어력을 보이고 있습니다.
+- **LINK ($11.272, -2.96%):** Chainlink TVL은 약 19.66억 달러(-0.29%) 수준을 유지 중입니다.
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 254.85, 'chg_pct_1d': 2.518}
+- **TAO ($247.41, -1.93%):** 서브넷 및 AI 칩 관련 신규 뉴스는 부재합니다. (확인 필요) 빅테크 AI 섹터 변동성과 연동되며 소폭 조정세를 기록 중입니다.
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. 미 국채 10년물 금리 5% 육박 및 중동 지정학적 리스크로 BTC가 8만 달러를 하회하는 등 위험자산 전반에 단기 하방 압력 심화.
+2. ETH는 테스트넷 연기 악재로 하락한 반면, XRP는 프랭클린 템플턴의 1.5억 달러 온체인 자금 유입 호재가 발생.
+3. RWA 및 AI 관련 핵심 종목(CRCL, ONDO, TAO)은 낙폭을 비교적 잘 방어하고 있으나 매크로 안정 전까지 보수적 접근 필요.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 전체 포트폴리오 평가손실(-27.62%)이 심화된 상황에서 미 국채 금리 급등(4.98%)과 지정학 악재가 겹쳤으므로, 유일하게 수익 중인 ONDO(+8.58%)와 손실 폭이 적은 CRCL·TAO 외에 메이저(BTC/ETH/SOL/LINK)의 무리한 물타기는 자제하고 BTC $80k 복귀 전까지 현금 비중 방어를 최우선으로 가져가십시오.
