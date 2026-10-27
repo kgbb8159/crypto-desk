@@ -1,36 +1,27 @@
 # 📅 [2026-10-27] 크립토 & 매크로 모닝 브리핑
 
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
-
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 102.245 (0.28%)
-- US10Y: 4.999 (0.261%)
-- SPX: 7685.1802 (0.11%)
+- **DXY (달러인덱스):** 102.342 (+0.38%) 상승하며 강보합세 유지.
+- **US10Y (미 10년물 국채금리):** 4.993% (+0.14%)로 5%선에 바짝 다가서며 시중 금리 압박 지속.
+- **S&P 500 / 증시:** S&P500은 7,722.60 (+0.60%)으로 기술주 중심으로 반등했으나, FOMC 정례회의 개시를 앞두고 가상자산 시장은 지수 상승과 다소 디커플링되며 $80,000 하회 시도 등 단기 변동성 확대 중.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 79985.5312, 'chg_pct_1d': -0.026, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Bitcoin miners' move into AI is creating a new market for trading computing power
-  - Bitcoin shows signs of weakness while Ripple's bank win fails to bolster XRP
-  - Live updates: Bitcoin holds below $80,000 as AI buildout draws investor attention and capital
-- ETH: {'last': 2321.3, 'chg_pct_1d': 0.044, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - Ethereum fixes Glamsterdam bug that could have sent staking deposits to builders
-- SOL: {'last': 100.2, 'chg_pct_1d': -0.551, 'symbol': 'SOL-USD', 'source': 'yahoo'}
-  - Solana bug reports now cost 1 SOL as AI floods security teams with spam
+- **BTC ($80,580.85, +0.72%):** 미 연준 FOMC 회의 시작과 함께 단기 약세를 보이며 한때 $80,000선을 하회. 갤러시(Galaxy)는 현 시점을 축적(Accumulate) 기회로 제시한 반면, 일부 분석가는 $57,000까지의 하락 가능성 경고. 채굴기업들의 AI 연산 능력 거래 시장 진출이 가속화됨. 현물 ETF 수급은 최근 유출세 우위 기록 중.
+- **ETH ($2,341.19, +0.90%):** 스테이킹 예치금이 검증자가 아닌 빌더에게 잘못 전달될 수 있었던 'Glamsterdam' 버그를 수정하며 네트워크 안정성 강화.
+- **SOL ($100.94, +0.18%):** AI 스팸 버그 리포트 폭주로 인해 버그 제보 비용을 1 SOL로 유료화 전환. TVL은 약 $56.9억(-0.22%) 수준.
+- **XRP ($1.32, +1.01%) & 구루 동향:** 리플의 미 국립신탁은행 최종 승인 및 로빈후드(2,860만 고객)의 RLUSD 스테이블코인 도입 호재 발표. 아서 헤이즈(Arthur Hayes)는 알트코인 매도 후 FLOP 네트워크의 AI 연산 파생상품 비전을 공개함.
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 79.345, 'chg_pct_1d': -0.62, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-- ONDO price: {'last': 0.4133, 'chg_pct_1d': -0.404, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 11.322, 'chg_pct_1d': -0.501, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1994037541.0, 'tvl_chg_pct_approx': -0.286, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL ($81.58, +2.18%):** 주가는 2.18% 상승 반등했으나, 금일 추가 실적/Arc 메인넷 관련 직접 뉴스는 없음(확인 필요).
+- **ONDO ($0.4151, +0.04%):** 시세 보합세 유지 중이며 주요 공시 뉴스 없음(확인 필요).
+- **LINK ($11.44, +0.54%):** Chainlink 온체인 TVL은 약 $20.07억 (+0.38%) 기록하며 안정적 흐름 유지.
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 248.73, 'chg_pct_1d': -1.239}
+- **TAO ($252.95, +1.14%):** 소폭 반등세. 서브넷 및 AI 칩 연동 관련 당일 특정 헤드라인은 없으나(확인 필요), 비트코인 채굴자들의 AI 연산 자산화 및 아서 헤이즈의 AI 연산 파생상품 시장 언급 등 AI 헤비 연산 테마 전반의 관심은 지속.
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 구루 멘션 1건 확인
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. FOMC 회의 개시 및 미 10년물 국채금리 5% 인근 육박으로 인한 매크로 변동성 주의.
+2. 비트코인 $80k선 공방 속 기관 매수 주장에 대비한 시장의 단기 하방 리스크 점검.
+3. 리플(XRP)의 은행 승인·로빈후드 연동 등 개별 호재가 크립토 전반의 온기 확산으로 이어지는지 확인.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: ONDO(+13.0%)를 제외한 BTC(-24.1%), ETH(-37.8%), SOL(-41.3%), LINK(-38.5%) 등 주요 주요 종목이 손실권에 있으므로, FOMC 기간 신규 추매는 자제하고 ONDO의 일부 수익 실현 및 BTC $80k 이하 거미줄 매수 체결 여부만 보수적으로 관망할 것을 권장합니다.
