@@ -1,26 +1,35 @@
-# 📅 [2026-10-30] 크립토 & 매크로 모닝 브리핑
+# 📅 [2026-10-31] 크립토 & 매크로 모닝 브리핑
+
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- **달러 인덱스(DXY) & 국채 금리**: DXY는 101.922(-0.12%)로 소폭 하락했으며, 미 10년물 국채 금리(US10Y) 역시 4.929%(-1.20%)로 진정세를 보였습니다.
-- **증시 및 시장 심리**: S&P 500 지수는 인텔 등 기술주 폭락과 AI 지출에 대한 우려로 -1.82%(7,580.07) 하락하며 위험자산 전반에 하방 압력을 가했습니다.
-- **연준(Fed) 금리 경로**: 현행 FOMC 통화정책 스탠스가 유지되는 가운데, 국채 금리 안정에도 불구하고 증시 악재와 크립토 악재가 겹치며 시장 경계감이 고조되어 있습니다.
+- DXY: 101.88 (-0.157%)
+- US10Y: 4.929 (-1.203%)
+- SPX: 7580.0698 (-1.818%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($76,790.26, -1.27%) & ETH ($2,236.64, -0.57%)**: 바이낸스의 60억 달러 규모 해킹 악재(ETH 권한 허점으로 25억 달러 유출, 해커가 BTC 14억 달러를 19개 지갑으로 분산)로 시장 전반에서 15.7억 달러의 레버리지 청산이 발생했습니다. BTC는 $77,000선이 무너졌으며 스탠다드차타드는 추가 하락을 경고했습니다. ETF 수급은 혼조세 및 유출 우려가 이어지고 있습니다.
-- **SOL ($94.75, -0.78%)**: 폴리곤(Polygon)과 손잡고 은행 대상 스테이블코인 결제 시스템 구축에 나선다는 호재가 발표되었으나, 시장 약세 여파로 TVL은 $5.28B(-7.25%)로 감소했습니다.
-- **XRP ($1.2463, +0.93%)**: 시장 전반의 청산 속에서도 소폭 반등했으며, XRP 레저 개발진은 '제한적(restricted)' 토큰 보유 자격 규정을 강화했습니다.
+- BTC: {'last': 77029.25, 'chg_pct_1d': -0.959, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Here's how big bitcoin traders responded after the Binance hack hit
+  - Crypto liquidations jump to $1.57 billion as Binance hack sends bitcoin, ether lower
+  - Live updates: Bitcoin falls below $77,000 as Binance exploit combines with tech woes
+- ETH: {'last': 2234.5701, 'chg_pct_1d': -0.664, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - Here’s how an Ethereum upgrade helped drain part of Binance’s $6 billion loss
+- SOL: {'last': 95.47, 'chg_pct_1d': -0.025, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+  - From rivals to partners: Polygon and Solana team to bring stablecoin payments to banks
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($72.25, -9.68%)**: 기술주 및 위험자산 조정 여파로 하락세를 보였으며, 신규 실적 및 Arc 메인넷 관련 추가 발표는 '확인 필요'.
-- **ONDO ($0.4023, +6.06%)**: 시장 하락장 속에서도 +6.06% 상승하며 강한 상대적 강세를 기록했습니다. (온체인 세부 TVL은 데이터 '확인 필요')
-- **LINK ($11.06, +4.41%)**: TVL $1.87B(-2.23%) 수준을 유지하는 가운데 가격은 +4.41% 반등했습니다.
+- CRCL price: {'last': 72.54, 'chg_pct_1d': -9.314, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.404, 'chg_pct_1d': 6.519, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 11.357, 'chg_pct_1d': 7.203, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1875936696.0, 'tvl_chg_pct_approx': -0.009, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($231.69, -6.79%)**: 빅테크 AI 지출 우려 및 인텔 등 기술주 폭락 여파와 연동되며 -6.79% 하락했습니다. (서브넷 관련 추가 뉴스는 '확인 필요')
+- TAO: {'source': 'coingecko', 'last': 234.67, 'chg_pct_1d': -1.193}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. 바이낸스 해킹($60억 손실, $15.7억 레버리지 청산) 파장으로 크립토 시장 단기 변동성 심화.
-2. 미 국채 금리(4.929%) 하락에도 기술주 악재(S&P -1.82%)로 인해 매수 심리 위축.
-3. 비트코인 $77,000 하회 속 ONDO, LINK 등 일부 RWA 종목의 방어력 및 차별화 수급 주시.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 전체 포트폴리오(-32.7%) 손실 폭이 크고 바이낸스 해킹에 따른 단기 하방 리스크가 남아있으므로, 유일하게 수익 중인 ONDO(+10.0%)의 수익을 일부 챙기면서 BTC·ETH·CRCL 등 주요 보유 종목은 진정세를 확인한 후 거미줄 매수를 집행하는 보수적 관망을 추천합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
