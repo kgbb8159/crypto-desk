@@ -8,25 +8,24 @@
 - SPX: 7580.0698 (-1.818%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 77029.25, 'chg_pct_1d': -0.959, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Here's how big bitcoin traders responded after the Binance hack hit
-  - Crypto liquidations jump to $1.57 billion as Binance hack sends bitcoin, ether lower
-  - Live updates: Bitcoin falls below $77,000 as Binance exploit combines with tech woes
-- ETH: {'last': 2234.5701, 'chg_pct_1d': -0.664, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+- BTC: {'last': 77328.7266, 'chg_pct_1d': 0.169, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - As big bitcoin miners chase AI profits, individuals get another shot at the rewards
+  - 18 years in, what has Bitcoin truly done?
+  - A Nasdaq-listed company may sell $450 million bitcoin, citing Binance hack and quantum fears
+- ETH: {'last': 2246.8, 'chg_pct_1d': 0.256, 'symbol': 'ETH-USD', 'source': 'yahoo'}
   - Here’s how an Ethereum upgrade helped drain part of Binance’s $6 billion loss
-- SOL: {'last': 95.47, 'chg_pct_1d': -0.025, 'symbol': 'SOL-USD', 'source': 'yahoo'}
-  - From rivals to partners: Polygon and Solana team to bring stablecoin payments to banks
+- SOL: {'last': 95.57, 'chg_pct_1d': -0.674, 'symbol': 'SOL-USD', 'source': 'yahoo'}
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
 - CRCL price: {'last': 72.54, 'chg_pct_1d': -9.314, 'symbol': 'CRCL', 'source': 'yahoo'}
 - CRCL tvl: None
-- ONDO price: {'last': 0.404, 'chg_pct_1d': 6.519, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO price: {'last': 0.4083, 'chg_pct_1d': -1.948, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
 - ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 11.357, 'chg_pct_1d': 7.203, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1875936696.0, 'tvl_chg_pct_approx': -0.009, 'url': 'https://defillama.com/protocol/chainlink'}
+- LINK price: {'last': 11.553, 'chg_pct_1d': 1.013, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1875011907.0, 'tvl_chg_pct_approx': -0.058, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 234.67, 'chg_pct_1d': -1.193}
+- TAO: {'source': 'coingecko', 'last': 234.86, 'chg_pct_1d': 1.707}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
 - 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
