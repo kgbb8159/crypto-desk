@@ -1,26 +1,36 @@
-# 📅 [2026-10-31] 크립토 & 매크로 모닝 브리핑
+# 📅 [2026-11-01] 크립토 & 매크로 모닝 브리핑
+
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- **DXY / 국채금리**: 달러 인덱스(DXY)는 101.88(-0.16%), 미국 10년물 국채금리(US10Y)는 4.929%(-1.20%)로 소폭 하락함. S&P500 지수는 Big Tech 기술주 악재 및 시장 리스크 오프 심리로 인해 -1.82%(7,580.07) 하락 마감함.
-- **연준 금리 경로**: 현행 FOMC 통화정책 및 금리 인하 경로에 시장의 시선이 집중된 가운데, 매크로 긴장감과 위험자산 전반의 변동성이 누적되는 양상임 (세부 연준 수뇌부 발언 '확인 필요').
+- DXY: 101.88 (-0.157%)
+- US10Y: 4.929 (-1.203%)
+- SPX: 7580.0698 (-1.818%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($77,403.98, +0.27%)**: 바이낸스 $60억 규모 해킹/익스플로잇 여파로 시장 전체 $15.7억 레버리지 청산이 발생하며 $77,000 선을 밑돌았으나 소폭 반등함. 나스닥 상장사가 해킹 및 양자 컴퓨터 우려로 $4.5억 상당의 BTC 매도를 검토한다는 소식이 하방 압력으로 작용 중 (현물 ETF 최신 유입세 '확인 필요').
-- **ETH ($2,249.34, +0.37%)**: 바이낸스 유출 자금 중 $25억 상당이 이더리움 권한/업그레이드 취약점과 연계되었다는 분석이 나오며 투자 심리가 위축됨.
-- **SOL ($95.62, -0.62%)**: 약보합세 지속 중이나, 온체인 TVL은 $54.2억(+1.50%) 수준을 유지하며 유동성 방어 중.
-- **XRP ($1.25, -0.37%)**: 동반 폭락장 속 레버리지 물량이 대거 청산됨. XRPL 개발진은 '제한된(Restricted)' 토큰 보유자 자격 규정을 강화함.
+- BTC: {'last': 77702.5234, 'chg_pct_1d': 0.653, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - FBI confirms North Korea's role in $6 billion Binance hack, asks DeFi community to block BTC, ETH, SOL addresses
+  - Bitcoin's white paper turns 18, and small businesses are still paying for the bailouts it answered
+  - As big bitcoin miners chase AI profits, individuals get another shot at the rewards
+- ETH: {'last': 2265.1399, 'chg_pct_1d': 1.075, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - FBI confirms North Korea's role in $6 billion Binance hack, asks DeFi community to block BTC, ETH, SOL addresses
+  - Here’s how an Ethereum upgrade helped drain part of Binance’s $6 billion loss
+- SOL: {'last': 95.36, 'chg_pct_1d': -0.893, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+  - FBI confirms North Korea's role in $6 billion Binance hack, asks DeFi community to block BTC, ETH, SOL addresses
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($72.54, -9.31%)**: 가상자산 충격 여파로 주가가 -9.31% 큰 폭 하락함 (서클 실적 및 Arc 메인넷 관련 신규 헤드라인 '확인 필요').
-- **ONDO ($0.41, -1.92%)**: 소폭 조정되었으나, 전반적인 시장 폭락 속에서도 포트폴리오 내 유일한 수익권 지위 유지 중 (TVL 데이터 '확인 필요').
-- **LINK ($11.87, +3.78%)**: 오라클 및 RWA 섹터 내 반강세로 +3.78% 반등 성공, TVL은 약 $18.75억(-0.05%) 기록.
+- CRCL price: {'last': 72.54, 'chg_pct_1d': -9.314, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.4127, 'chg_pct_1d': -0.899, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 11.624, 'chg_pct_1d': 1.634, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1879824627.0, 'tvl_chg_pct_approx': -0.005, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($237.62, +2.54%)**: 마이닝 기업들의 AI 사업 확장 움직임 및 AI 섹터 반발 매수세 유입으로 +2.54% 반등 (세부 서브넷/AI 칩 연동 이슈 '확인 필요').
+- TAO: {'source': 'coingecko', 'last': 236.53, 'chg_pct_1d': 0.535}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. **바이낸스 해킹 충격 여파**: $15.7억 대규모 청산과 나스닥 상장사의 $4.5억 BTC 매도 우려가 맞물려 단기 하방 리스크가 지속됨.
-2. **매크로 혼조세**: 국채금리(4.929%)와 DXY 소폭 하락에도 불구하고 Big Tech 실적 우려 및 위험자산 기피로 증시 약세.
-3. **종목별 디커플링**: 시장 충격 속에서도 ONDO의 수익권 방어, LINK·TAO의 소폭 반등 등 알트코인 차별화 흐름 주시 필요.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 바이낸스 악재발 변동성으로 포트폴리오 전체(-31.4%)의 하방 위험이 높은 만큼, 유일한 수익권인 ONDO(+11.9%)의 이익을 일부 확정하고 BTC/ETH/CRCL 등 손실권 종목은 신규 추매 없이 지지선 확인 시까지 방어적으로 관망하는 전략을 추천합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
