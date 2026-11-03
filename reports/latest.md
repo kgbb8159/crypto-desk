@@ -1,26 +1,33 @@
-# 📅 [2026-11-02] 크립토 & 매크로 모닝 브리핑
+# 📅 [2026-11-03] 크립토 & 매크로 모닝 브리핑
+
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- **매크로 지표**: DXY 101.68(-0.20%), 미 10년물 국채금리 4.88%(-0.99%), S&P500 7,606.92(+0.35%).
-- **연준 및 금리 경로**: 국채 금리와 달러 인덱스가 소폭 하락하며 증시는 상승세로 마감했으나, 연준 FOMC 금리 경로 관련 추가 발언이나 통화정책 호재는 부재해 매크로 온기보다는 크립토 자체 수급 악재가 시장을 지배하는 국면입니다.
+- DXY: 101.722 (-0.028%)
+- US10Y: 4.894 (-0.71%)
+- SPX: 7541.3999 (-0.51%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($77,053, -1.53%)**: 바이낸스 출금 재개 후 총 60억 달러(보유량의 4% 미만) 수준의 대규모 자금 유출이 발생하고, 지난 금요일 현물 ETF에서 6.43억 달러가 유출되며 $79,000 반등세가 꺾였습니다. BTCPay 결제 도구 보안 경고 및 브라질 Mercado Bitcoin의 4,000만 달러 해킹/출금 중단 등 악재가 겹쳤습니다.
-- **ETH ($2,256, -0.71%)**: 주요 개별 뉴스는 부재한 가운데 비트코인 약세 및 시장 전반의 리스크 오프 심리에 연동되어 하락세를 보였습니다.
-- **SOL ($92.06, -2.54%)**: Solana TVL은 $54.28억(+0.42%)으로 견조하게 유지 중이나 단기 시장 수급 악화로 주가 및 가격은 하락 조정받았습니다.
-- **XRP ($1.24, -0.73%)**: 파트너사의 스테이블코인 무단 발행 가능성을 차단하는 XRP Ledger 보안 패치가 진행 중입니다.
+- BTC: {'last': 76607.3594, 'chg_pct_1d': -2.097, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Binance has spent half its SAFU bitcoin, about $580 million worth, data shows
+  - Bitcoin drops below $77,000 as chip rout deepens ahead of U.S. midterm vote
+  - Bitcoin traders eye post-election rally as exchange outflows point to supply squeeze
+- ETH: {'last': 2247.04, 'chg_pct_1d': -1.144, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+- SOL: {'last': 91.69, 'chg_pct_1d': -2.927, 'symbol': 'SOL-USD', 'source': 'yahoo'}
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($74.08, +2.12%)**: 뉴욕 증시 상승세 속에 서클 주식(CRCL)은 2.12% 반등하며 크립토 토큰 시장과 차별화된 흐름을 보였습니다. (Arc 메인넷/실적 세부 이슈: 확인 필요)
-- **ONDO ($0.386, -4.48%)**: 가격 조정을 받는 가운데 TVL 등 온체인 수치 업데이트는 확인 필요 상태입니다.
-- **LINK ($11.10, -2.52%)**: Chainlink 프로토콜 TVL은 $18.76억(-0.25%)으로 소폭 감소했습니다.
+- CRCL price: {'last': 72.08, 'chg_pct_1d': -0.634, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.3823, 'chg_pct_1d': -5.453, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 11.056, 'chg_pct_1d': -2.88, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1867123727.0, 'tvl_chg_pct_approx': -0.028, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($224.19, -4.22%)**: 가상자산 전반의 투자심리 위축 영향으로 조정을 받았으며, 서브넷 및 AI 칩 연동 관련 주요 뉴스는 확인 필요 상태입니다.
+- TAO: {'source': 'coingecko', 'last': 221.95, 'chg_pct_1d': -4.36}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. 바이낸스 출금 재개에 따른 60억 달러 유출 FUD와 BTC 현물 ETF의 $6.43억 대규모 유출 여파 진정 여부.
-2. BTCPay, Mercado Bitcoin 해킹 등 암호화폐 보안 이슈로 인한 단기 투자심리 악화 경계.
-3. 달러/금리 안정에도 불구하고 크립토 자체 수급 악재로 인한 주요 종목 지지선 테스트 지속.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 유일하게 플러스 수익권인 ONDO(+6.56%) 외 BTC·ETH·SOL·LINK 등 주요 종목 손실 폭(-26%~-61%)이 심화되었으므로, 바이낸스 유출 FUD와 ETF 매도세가 소강될 때까지 신규 물타기를 멈추고 현금 비중을 지키는 관망 전략이 유효합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
