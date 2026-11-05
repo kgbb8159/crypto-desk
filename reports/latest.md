@@ -1,26 +1,33 @@
 # 📅 [2026-11-05] 크립토 & 매크로 모닝 브리핑
 
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+
 ## 1. 🌐 거시경제 & 매크로 지표
-- **달러 인덱스 (DXY)**: 101.267 (-0.24%)로 하락하며 달러화 약세 전환.
-- **미 국채 10년물 금리 (US10Y)**: 4.894% (-1.17%)로 안정화되며 위험자산에 유동성 환경 제공.
-- **S&P 500 (SPX)**: 7,688.62 (+1.58%) 상승. 중간선거 불확실성 해소(Blue Wave 리바운드)에 따라 미 증시와 크립토 시장 전반에 강한 리스크 온(Risk-on) 심리 형성.
+- DXY: 101.569 (0.058%)
+- US10Y: 4.831 (-1.287%)
+- SPX: 7457.9702 (-3.0%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($80,324.35, +3.85%)**: 선거 불확실성 소멸로 $80,000를 상회하는 V자 반등 성공. 트럼프 미디어가 3억 4,200만 달러 상당의 BTC를 Crypto.com으로 이동한 온체인 물량 이동 포착. 미 제재 대상인 모스크바 거래소의 12월 BTC/USDT 상장 소식 등 대형 기관·온체인 이슈 교차 중.
-- **ETH ($2,417.26, +6.36%)**: 디파이 섹터 반등을 주도하며 6% 이상 강세. (ETF 상세 실시간 유입은 데이터 미제공으로 확인 필요)
-- **SOL ($95.69, +2.98%)**: 글로벌 자산운용사 슈로더(Schroders)가 신흥국 채권 펀드를 솔라나 체인상에 출시하며 실물자산 온보딩 호재 반영. 솔라나 TVL은 약 55.45억 달러(+3.02%) 기록.
-- **XRP ($1.3057, +2.22%)**: 승인된 토큰 소각자가 신규 토큰을 생성할 수 있었던 XRP Ledger의 치명적 버그 패치 완료.
+- BTC: {'last': 76296.0234, 'chg_pct_1d': -5.111, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Google could take stake in bitcoin miner TeraWulf’s $19 billion AI project if Anthropic defaults
+  - Bitcoin is resilient, but leverage is missing and demand still tepid
+  - Bitcoin miners are oversold following 35% October rout, VanEck says
+- ETH: {'last': 2258.0901, 'chg_pct_1d': -6.78, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+- SOL: {'last': 90.72, 'chg_pct_1d': -4.994, 'symbol': 'SOL-USD', 'source': 'yahoo'}
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($76.12, +1.19%)**: 서클(Circle)은 USDC 거래량 급증에 힘입어 분기 실적 및 매출이 시장 예상치를 상회. 동시에 효율성 제고를 위해 인력의 5% 감원 단행.
-- **ONDO ($0.4061, +3.99%) & LINK ($11.51, +4.29%)**: 체인링크 TVL은 18.58억 달러(+0.14%) 수준 유지. 매크로 불확실성 해소에 따라 RWA 및 오라클 관련 대형 자산 동반 상승.
+- CRCL price: {'last': 67.675, 'chg_pct_1d': -11.094, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.3764, 'chg_pct_1d': -7.82, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 10.795, 'chg_pct_1d': -5.659, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1836388630.0, 'tvl_chg_pct_approx': -1.067, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($233.38, +2.54%)**: 전반적인 크립토 랠리와 연동되며 상승세 전환. 서브넷 신규 업데이트 및 AI 칩 관련 개별 이슈는 단기 '확인 필요'.
+- TAO: {'source': 'coingecko', 'last': 219.71, 'chg_pct_1d': -7.309}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. 선거 불확실성 해소 및 국채금리·달러 하락으로 BTC가 $80,000를 재돌파하며 강한 리바운드 진행.
-2. 슈로더의 솔라나 채권 펀드 출시 및 서클(CRCL) 어닝 서프라이즈 등 기관 RWA 호재 지속.
-3. 트럼프 미디어의 $3.42억 BTC 거래소 이동 및 모스크바 거래소 상장 등 변동성 유발 온체인 물량 주의.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: ONDO(+11.9%) 수익권 유지 및 TAO(-7.6%)의 얕은 손실폭을 활용해 관망을 유지하시되, BTC $80k 복귀 반등장에서 손실률이 높은 SOL/XRP/ETH는 무리한 추매보다 하방 지지력 확인 후 비중 조절을 추천합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
