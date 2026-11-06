@@ -1,33 +1,29 @@
-# 📅 [2026-11-05] 크립토 & 매크로 모닝 브리핑
-
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+# 📅 [2026-11-06] 크립토 & 매크로 모닝 브리핑
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 101.569 (0.058%)
-- US10Y: 4.831 (-1.287%)
-- SPX: 7457.9702 (-3.0%)
+- **DXY (달러인덱스)**: 101.75 (+0.20% 소폭 상승)
+- **US10Y (미 10년물 국채금리)**: 4.837% (-1.165% 하락)
+- **증시 및 매크로 연동**: S&P 500 지수가 -4.36%(7,353.73) 급락하며 2025년 4월 이후 최악의 하락장을 기록. AI 트레이드 붕괴(AI trade meltdown)가 주식시장을 강타하면서 가상자산 등 위험자산 전반으로 투매 심리가 전이됨.
+- **연준 금리 경로**: 국채 금리 하락에도 불구하고 시장 내 위험회피(Risk-off) 심리가 극대화되며 금리 인하 기대감보다는 증시 급락 충격이 시장을 지배 중.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 76296.0234, 'chg_pct_1d': -5.111, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Google could take stake in bitcoin miner TeraWulf’s $19 billion AI project if Anthropic defaults
-  - Bitcoin is resilient, but leverage is missing and demand still tepid
-  - Bitcoin miners are oversold following 35% October rout, VanEck says
-- ETH: {'last': 2258.0901, 'chg_pct_1d': -6.78, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-- SOL: {'last': 90.72, 'chg_pct_1d': -4.994, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+- **BTC**: $75,515.89 (-6.08%) | 미 증시 폭락 및 AI 관련주 급락 여파로 $76,000선까지 하락. 레버리지 미결제약정이 감소하고 신규 수요가 미진한 상태. 퀀텀 공격 방어를 위한 '지뢰(landmines)' 프로포절 등 기술적 제안 발의. (최신 현물 ETF 일간 유출입 수급: 확인 필요)
+- **ETH**: $2,218.92 (-8.40%) | 매크로 악재 및 크립토 시장 전반의 하락세로 8% 이상 급락. (현물 ETF 유출입: 확인 필요)
+- **SOL**: $89.22 (-6.57%) | 시장 하락세와 맞물려 하락. 솔라나 온체인 TVL은 약 $52.58B (-4.92%) 수준으로 감소.
+- **기타(XRP)**: $1.1982 (-8.16%) | XRP Ledger의 신규 토큰 무단 생성 가능 버그 수정 완료.
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 67.675, 'chg_pct_1d': -11.094, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-- ONDO price: {'last': 0.3764, 'chg_pct_1d': -7.82, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 10.795, 'chg_pct_1d': -5.659, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1836388630.0, 'tvl_chg_pct_approx': -1.067, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL**: $69.48 (-8.72%) | 주식시장 및 기술주 폭락세에 영향을 받으며 하락. (실적 및 Arc 메인넷 신규 이슈: 확인 필요)
+- **ONDO**: $0.3722 (-8.85%) | 섹터 전반의 조정 여파로 하락. (온체인 TVL: 확인 필요)
+- **LINK**: $10.72 (-6.31%) | 가격은 하락했으나 DefiLlama 기준 Chainlink TVL은 $1.85B (+0.25%) 수준으로 온체인 인프라 기반 유지 중.
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 219.71, 'chg_pct_1d': -7.309}
+- **TAO**: $218.24 (-6.66%) | 빅테크 및 증시 AI 섹터 폭락 여파로 DePIN/AI 테마 전반에 하방 압력 작용. (서브넷 개별 호재: 확인 필요)
+- **AI-비트코인 채굴 연계**: 리엇(Riot) 및 테라울프(TeraWulf) 등 비트코인 채굴 기업들과 앤트로픽(Anthropic), 구글 간의 대규모 AI 데이터센터 프로젝트 리스크가 유입되며 AI-크립토 연계 테마의 변동성이 확대됨.
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. AI 주식 붕괴 및 S&P 500 급락(-4.36%)으로 비트코인이 $75,000선까지 위협받는 강력한 리스크오프 장세.
+2. BTC/ETH 등 주요 자산의 레버리지 부진과 수급 공백이 지속되고 있어 단기 추가 변동성 주의 필요.
+3. 폭락장 속 체인링크(LINK) TVL 유지를 제외하고 전반적 투매가 진행 중이므로, 증시 및 비트코인의 $75k 지지 여부가 최우선 관전 포인트.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 미 증시 폭락으로 전체 손익(-33.73%)이 악화된 만큼 추가 신규 매수는 자제하고, 유일하게 수익권인 ONDO(+3.98%)를 리밸런싱 카드로 활용하면서 BTC($75k) 지지선 확인 시까지 현금 비중을 방어하는 보수적 관망을 추천합니다.
