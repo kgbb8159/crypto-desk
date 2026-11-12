@@ -1,25 +1,37 @@
 # 📅 [2026-11-12] 크립토 & 매크로 모닝 브리핑
 
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+
 ## 1. 🌐 거시경제 & 매크로 지표
-- **매크로 지표**: DXY 103.01(+0.10%), 미 10년물 국채금리(US10Y) 5.00% 육박(4.998%, +0.30%), S&P500 7,619.38(+1.31%).
-- **연준 금리 경로 & CPI**: 미국 10월 CPI가 전월 대비 0.4%(근원 0.3%) 상승하며 시장 예상을 상회. 예상보다 뜨거운 인플레이션 수치로 인해 시장 내 연준의 금리 인상/긴축 경계감이 고조되었으며, 이에 따라 미 국채 금리가 급등하며 위험자산 상방을 제한.
+- DXY: 103.16 (0.243%)
+- US10Y: 5.074 (1.521%)
+- SPX: 7630.23 (0.142%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($73,629, -0.12%)**: 증시 반등과 탈동조화되며 $74,000 하회 지속. 현물 ETF 매도세는 다소 완화되었으나 4일 연속 순유출을 기록함. 채굴기업 MARA의 보유량 매도 및 비트코인 코어(Tor 노드 관련) 버그 공개 등 악재 중첩.
-- **ETH ($2,050, -0.01%)**: 보합세 유지. 단기 현물 ETF 세부 수급 및 독자적 헤드라인은 '확인 필요'.
-- **SOL ($83.10, -0.19%)**: 소폭 하락. 온체인 TVL은 약 $50.2억(-0.15%) 수준 유지 중.
-- **XRP ($1.0422, -1.27%)**: XRP 레저(XRPL) 기반 은행 대출 시스템 출시 임박 호재 및 Ripple Prime 수장 교체(Marc Asch 사임 후 Noel Kimmel 선임) 소식 발표.
+- BTC: {'last': 71608.5625, 'chg_pct_1d': -3.185, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Bitcoin weakness erases September's bullish signal
+  - Bitcoin dips with Nvidia as ETF outflows reach day five
+  - Live updates: Bitcoin slumps below $72,000 as Nvidia's Huang resigns, interest rates surge
+- ETH: {'last': 2000.7, 'chg_pct_1d': -2.684, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - Ethereum researchers drop faster blocks to race toward quantum defenses in 2027
+- SOL: {'last': 81.18, 'chg_pct_1d': -2.57, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+  - DTCC adds Solana to Wall Street tokenization plans, targeting 2027 rollout
+  - Jupiter adds Anchorage-backed USDGO to its $1 billion Solana lending platform
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($67.12, +3.29%)**: OKXICE가 이번 달 서클(Circle), 마이크로스트래티지, 코인베이스 등의 토큰화 주식 거래 서비스를 선보일 예정이라는 소식에 상승세 연출.
-- **ONDO ($0.3564, -2.91%) & LINK ($10.085, -1.87%)**: RWA 자산군 전반 약보합세. Chainlink TVL은 $18.17억(-0.69%) 기록. 세부 온체인 호재는 '확인 필요'.
+- CRCL price: {'last': 64.8129, 'chg_pct_1d': -3.437, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+  - OKXICE to debut tokenized stock trading with Strategy, Coinbase, Circle this month
+- ONDO price: {'last': 0.3488, 'chg_pct_1d': -2.807, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 9.964, 'chg_pct_1d': -2.248, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1815302021.0, 'tvl_chg_pct_approx': -0.807, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($215.00, -1.63%)**: CoreWeave 실적 호조 및 엔비디아 반등 등 미 증시 AI주 강세에도 불구하고 암호화폐 AI 테마는 약보합세. TAO 신규 서브넷 및 칩 연동 개별 이슈는 '확인 필요'.
+- TAO: {'source': 'coingecko', 'last': 208.45, 'chg_pct_1d': -6.573}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. 미 10월 CPI 충격으로 국채금리가 5.0%에 육박하며 연준의 금리 경로에 대한 경계감 심화.
-2. 비트코인은 4일 연속 ETF 순유출 및 채굴사 매도로 증시 반등에 동조하지 못하고 $74,000 아래에서 침체.
-3. RWA 주식 토큰화 호재로 CRCL(+3.29%)이 반등했으나, 시장 전반의 긴축 우려로 보수적 접근 필요.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 포트폴리오 전체 손실률(-37.8%) 중 손실 폭이 적은 ONDO(-2.7%)와 TAO(-15.7%) 위주로 리스크를 관리하시고, 미 국채금리 5% 돌파 여부와 BTC ETF 유출 진정세를 확인하기 전까지 신규 매수는 보수적으로 대응하는 것을 권장합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
