@@ -1,37 +1,25 @@
-# 📅 [2026-11-12] 크립토 & 매크로 모닝 브리핑
-
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+# 📅 [2026-11-13] 크립토 & 매크로 모닝 브리핑
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 103.16 (0.243%)
-- US10Y: 5.074 (1.521%)
-- SPX: 7630.23 (0.142%)
+- **달러인덱스(DXY) & 미 국채금리(US10Y)**: DXY는 103.176(+0.006%)으로 19개월 만의 최고치 수준을 기록하며 강세를 보였고, 미 10년물 국채금리(US10Y)는 5.103%(+2.10%)로 급등해 위험자산 전반에 강한 압박을 가하고 있습니다. S&P500은 7,592.40(-0.35%)으로 하락했습니다.
+- **연준 금리 경로 및 규제 동향**: 국채금리 급등 및 엔비디아 급락 등 기술주 악재가 겹치며 고금리 장기화 우려가 투심을 위축시켰습니다. 트럼프 대통령은 1년 만에 처음으로 SEC 및 CFTC 위원장 지명자를 발표했습니다.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 71608.5625, 'chg_pct_1d': -3.185, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Bitcoin weakness erases September's bullish signal
-  - Bitcoin dips with Nvidia as ETF outflows reach day five
-  - Live updates: Bitcoin slumps below $72,000 as Nvidia's Huang resigns, interest rates surge
-- ETH: {'last': 2000.7, 'chg_pct_1d': -2.684, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - Ethereum researchers drop faster blocks to race toward quantum defenses in 2027
-- SOL: {'last': 81.18, 'chg_pct_1d': -2.57, 'symbol': 'SOL-USD', 'source': 'yahoo'}
-  - DTCC adds Solana to Wall Street tokenization plans, targeting 2027 rollout
-  - Jupiter adds Anchorage-backed USDGO to its $1 billion Solana lending platform
+- **BTC ($68,533.70 / -7.34%)**: DXY 강세와 국채금리 급등 영향으로 $70,000 선이 무너졌습니다. 비트코인 현물 ETF는 5일 연속 순유출을 기록하며 연간 누적 순유출이 $15억을 초과했습니다. MSCI의 Strategy 지수 제외 가능성 및 카난(Canaan)의 채굴 수익 감소에 따른 비트코인 매도 가능성이 수급 악재로 작용했습니다. 스페이스엑스-테슬라 합병 논의로 3만 BTC 보유 물량이 다시 주목받고 있습니다.
+- **ETH ($1,920.23 / -6.60%)**: 매크로 하락세와 동반 약세를 보였습니다. 이더리움 연구진은 2027년 양자 방어 체계 구축을 위해 블록 생성 속도 단축 추진을 유예하고 보안 연구에 집중한다고 밝혔습니다. (ETH 현물 ETF 수급: 상세 수치 확인 필요)
+- **SOL ($78.76 / -5.47%)**: DTCC가 2027년 목표 월가 토큰화 계획에 솔라나를 추가했고, 주피터 렌딩 플랫폼에 Anchorage 지원 USDGO가 추가되는 호재가 있었으나 전반적인 시장 약세를 피하지 못했습니다. (SOL TVL: 약 $49.1억, -2.47%)
+- **XRP ($1.0125 / -3.83%)**: 가격 하락세를 기록했습니다. (주요 헤드라인 뉴스: 확인 필요)
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 64.8129, 'chg_pct_1d': -3.437, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-  - OKXICE to debut tokenized stock trading with Strategy, Coinbase, Circle this month
-- ONDO price: {'last': 0.3488, 'chg_pct_1d': -2.807, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 9.964, 'chg_pct_1d': -2.248, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1815302021.0, 'tvl_chg_pct_approx': -0.807, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL ($63.82 / -4.92%)**: 가상자산 및 주식시장 약세 여파로 동반 하락했습니다. (실적 및 Arc 메인넷 관련 신규 뉴스는 확인 필요)
+- **ONDO ($0.334 / -6.92%) & LINK ($9.712 / -4.72%)**: LINK TVL은 약 $17.93억(-0.79%) 수준을 유지했으나 가격은 하락했습니다. (ONDO 및 LINK 관련 개별 호재 뉴스는 확인 필요)
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 208.45, 'chg_pct_1d': -6.573}
+- **TAO ($204.25 / -4.71%)**: 엔비디아 젠슨 황 사임 소식 및 AI 섹터 전반의 조정 여파로 하락세를 보였습니다. (서브넷 개별 이슈: 확인 필요)
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. 미 10년물 국채금리 5.1% 돌파 및 DXY 고공행진으로 인한 시장 전반의 리스크 오프(Risk-off) 국면.
+2. BTC $70,000 하회 및 비트코인 현물 ETF 5일 연속 순유출(연간 -$15억 초과)에 따른 단기 수급 악화.
+3. SOL의 DTCC 토큰화 합류 등 장기 기관 호재는 유효하나, 단기 매크로 변동성에 우선 대응 필요.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 현재 포트폴리오 손실률(-41.05%)과 미 국채금리 5.1% 돌파 등 매크로 악재를 감안해, BTC $70,000선 탈환 여부를 확인할 때까지 신규 추가 매수를 지양하고 현금 비중을 보존하는 방어적 관점을 유지하십시오.
