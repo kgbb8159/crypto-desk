@@ -1,37 +1,29 @@
 # 📅 [2026-11-14] 크립토 & 매크로 모닝 브리핑
 
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
-
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 103.41 (0.233%)
-- US10Y: 5.154 (0.999%)
-- SPX: 7561.6699 (-0.405%)
+- **DXY (달러인덱스):** 103.41 (+0.23%), 19개월 만의 최고치 수준까지 상승하며 암호화폐 등 위험자산 전반에 강한 하방 압력으로 작용.
+- **US10Y (미 10년물 국채금리):** 5.154% (+1.00%), 연준의 매파적 금리 경로 전망에 힘입어 5.15% 돌파.
+- **S&P 500:** 7,561.67 (-0.41%), 미 증시 약세 동반.
+- **연준 금리 경로 & 매크로 요약:** 고금리 장기화 우려와 달러 강세로 인해 크립토 시장 내 16억 달러 이상의 대규모 청산이 발생하며 단기 변동성이 극대화됨. 미 상원 은행위원회는 신임 SEC/CFTC 지명자 청문회 절차 진행 중.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 66985.5703, 'chg_pct_1d': -6.108, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Satoshi-era wallet served in a $260 billion lawsuit moves 75 BTC it held since 2011
-  - Bitcoin miners pay Paraguay $350 million a year, but AI is pushing them out
-  - Bitcoin plunges to $68,000 as Anthropic IPO frenzy adds to market jitters
-- ETH: {'last': 1896.66, 'chg_pct_1d': -5.958, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - Ethereum treasury firm BTCS sold ether at a loss to keep $64 million Aave loan healthy
-- SOL: {'last': 75.6, 'chg_pct_1d': -7.422, 'symbol': 'SOL-USD', 'source': 'yahoo'}
-  - DTCC adds Solana to Wall Street tokenization plans, targeting 2027 rollout
-  - Jupiter adds Anchorage-backed USDGO to its $1 billion Solana lending platform
+- **BTC (65,813.04달러 / -3.57%):** 고금리 주도 강달러 및 Anthropic IPO 관련 기술주 변동성 여파로 12주래 최저치까지 밀림. 비트코인 현물 ETF는 연간 누적 순유출이 15억 달러를 넘어섬. (영국의 스코틀랜드 풍력 폐기 전력 BTC 채굴 활용 검토, 2011년 산 사토시 시대 75 BTC 이동 이슈 발생).
+- **ETH (1,846.80달러 / -4.19%):** 약세 흐름 지속. 이더리움 재무 보유 기업 BTCS가 6,400만 달러 규모의 Aave 대출 청산을 막기 위해 손절매(손실 매도)를 진행하며 수급 압박 가중.
+- **SOL (73.84달러 / -5.45%):** DTCC의 2027년 월가 토큰화 계획 대상에 솔라나가 포함되고, Jupiter 대출 플랫폼에 USDGO가 도입되는 호재가 있었으나 전반적 시장 하락세에 동반 하락 (Solana 온체인 TVL: 약 48.05억 달러, -3.88%).
+- **XRP (0.9783달러 / -3.09%):** 시장 전반의 위험자산 매도세 속 약보합.
+- **구루 동향:** Arthur Hayes는 코인베이스의 미 주식 무기한 선물(Perps) 지지 행보에 대해 BitMEX의 무기한 스왑 출시 10년 후라며 긍정적 평가("flattered") 언급 (Raoul Pal, Jeremy Allaire 관련 신규 뉴스 없음).
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 62.2, 'chg_pct_1d': -2.538, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-- ONDO price: {'last': 0.331, 'chg_pct_1d': -6.198, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 9.637, 'chg_pct_1d': -4.884, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1795741502.0, 'tvl_chg_pct_approx': -0.603, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL (62.20달러 / -2.54%):** 주가 약보합. 서클의 실적 및 Arc 메인넷 관련 세부 신규 발표는 본 데이터셋 내 미포함으로 '확인 필요'.
+- **ONDO (0.3148달러 / -6.96%):** 시장 하락과 함께 조정 (DefiLlama TVL 수치는 미집계로 '확인 필요').
+- **LINK (9.266달러 / -5.75%):** 체인링크 프로토콜 TVL은 약 17.93억 달러(-0.73%)로 온체인 기반은 유지 중이나 매크로 하락 압력 영향으로 가격 하락.
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 210.84, 'chg_pct_1d': 3.552}
+- **TAO (198.68달러 / -7.92%):** TAO 자체 서브넷 및 AI 칩 직접 이슈는 '확인 필요'. 다만, 비트코인 채굴자들이 AI 데이터센터와의 전력 경쟁으로 밀려나는 현상과 Anthropic IPO 열풍 등 AI 섹터 전반의 자금 쏠림/변동성이 연동되며 하락 압력 받음.
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 구루 멘션 1건 확인
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. DXY(103.41) 경신 및 US10Y(5.154%) 상승에 따른 암호화폐 16억 달러 청산 발생 등 단기 변동성 주의.
+2. BTC 현물 ETF 연간 순유출 15억 달러 돌파 및 ETH 재무기업(BTCS) 강제 손절 등 수급 악화 지표 지속 관찰.
+3. SOL의 DTCC 월가 토큰화 탑재 등 개별 호재에도 불구하고 매크로 약세장이 우위이므로 보수적 대응 유지.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 포트폴리오 전체 손실률(-43.22%)이 심화된 구간이므로, 미 국채금리 및 달러 인덱스 피크아웃이 확인될 때까지 추가 매수를 자제하고 현금 비중을 보존하며 시장 바닥 확인을 대기하는 관망 전략을 권장합니다.
