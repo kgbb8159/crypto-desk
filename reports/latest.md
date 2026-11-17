@@ -1,27 +1,36 @@
 # 📅 [2026-11-17] 크립토 & 매크로 모닝 브리핑
 
+> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+
 ## 1. 🌐 거시경제 & 매크로 지표
-- **지표 현황**: DXY 103.49 (-0.06%) | US10Y 5.121% (-0.64%) | S&P500 7,416.59 (-1.92%)
-- **매크로 요약**: 미 국채 금리와 달러 인덱스가 소폭 하락했으나, 이번 주 예정된 **FOMC 의사록 발표**와 **엔비디아(Nvidia) 실적 발표**를 앞두고 증시(S&P500 -1.92%)를 비롯한 위험자산 전반에 경계감이 강하게 작동하고 있습니다.
+- DXY: 103.401 (-0.144%)
+- US10Y: 5.099 (-0.43%)
+- SPX: 7348.8501 (-0.913%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- **BTC ($64,592.28, -1.09%)**: 웰스파고(Wells Fargo)의 블랙록 BTC 현물 ETF 보유액이 23.5억 달러로 2배 증가하는 기관 수급 호재가 있었으나, 파생상품 시장에서는 $60,000 하방 이탈 베팅이 증가하고 있습니다. 엔비디아 실적 경계감 및 주말 간 20억 달러 규모 롱 포지션 청산 여파로 약세를 보이고 있습니다. (Farside 기준 ETF 순유출 지속)
-- **ETH ($1,829.36, -0.33%)**: 비탈릭 부테린이 양자 암호 체계 대응(Quantum-safe) 로드맵 단축 방안에 대해 '강력한 상승론(Total Bull)' 관점을 밝히며 장기 기술적 안정성을 강조했습니다.
-- **SOL ($72.80, +0.17%)**: 6년 이상 유지하던 '베타(Beta)' 라벨을 공식 제거하며 네트워크 안정성 단계를 선언했습니다. 온체인 TVL은 $47.62억(+1.63%)으로 견조한 흐름입니다.
-- **XRP ($0.9612, -1.38%)**: 리플 후원 기업 에버노스(Evernorth)가 상장 전 보유 XRP 장부가치를 60% 상각 처리했다는 소식이 전달되었습니다.
+- BTC: {'last': 63713.8711, 'chg_pct_1d': -1.761, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Ex-OpenAI researcher fund dumps bitcoin miners, cuts IREN 94% after portfolio slump
+  - Bitcoin remains penned in near $64,000 even as ETF outflow streak ends
+  - Live updates: Bitcoin and stocks continue slump as Huang signals interest in returning to Nvidia
+- ETH: {'last': 1783.12, 'chg_pct_1d': -1.987, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - Ethereum's Glamsterdam upgrade risks breaking up to 15,000 automated apps
+- SOL: {'last': 72.24, 'chg_pct_1d': 1.027, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+  - Solana Foundation takes majority stake in crypto data provider CoinGecko
+  - Solana drops ‘beta’ label after more than six years
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- **CRCL ($57.65, -7.32%)**: 증시 약세와 함께 주가 단기 조정을 받았으나, 개별 신규 헤드라인은 '확인 필요'.
-- **ONDO ($0.3083, -1.07%)**: 개별 신규 헤드라인 및 TVL 세부 데이터 '확인 필요'.
-- **LINK ($9.18, -1.11%)**: TVL $17.38억(+0.41%)으로 안정적 유지 중이며, 신규 이슈는 '확인 필요'.
-- **RWA/기관 동향**: JP모건과 DBS가 주말에도 국경 간 달러 이체가 가능한 결제 네트워크 시스템 도입을 발표하며 기관 금융의 온체인화 흐름이 가속화되고 있습니다.
+- CRCL price: {'last': 54.625, 'chg_pct_1d': -5.247, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL tvl: None
+- ONDO price: {'last': 0.2997, 'chg_pct_1d': -2.353, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
+- LINK price: {'last': 9.115, 'chg_pct_1d': -0.09, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1739870428.0, 'tvl_chg_pct_approx': 0.512, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- **TAO ($193.65, +1.60%)**: 기술주 폭락 속에서도 소폭 반등세를 기록했습니다. 서브넷 관련 세부 헤드라인은 '확인 필요' 상황이며, 이번 주 엔비디아 실적 결과가 AI 섹터 전반의 단기 방향성을 결정짓는 핵심 변수가 될 전망입니다.
+- TAO: {'source': 'coingecko', 'last': 190.68, 'chg_pct_1d': 0.263}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-1. **엔비디아 실적 & FOMC 의사록**: 주중 대형 이벤트 발표 전까지 위험자산 전반의 변동성 확대 주의.
-2. **BTC $60,000 지지 테스트**: 파생시장 하방 베팅 증가 및 기관 ETF 수급 유출입 추이 밀착 관찰.
-3. **SOL & 기관 결제 호재**: 솔라나 베타 라벨 탈피 및 JP모건-DBS 주말 결제망 도입 등 인프라 호재 지속.
+- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
+- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 전체 포트폴리오 손실률(-45.09%)과 비트코인 $60,000 지지선 테스트 위험을 고려해, 엔비디아 실적 및 FOMC 의사록 확인 전까지 추가 매수를 자제하고 현금을 확보하는 방어적 대응을 권장합니다.
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
