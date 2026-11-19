@@ -1,33 +1,32 @@
-# 📅 [2026-11-18] 크립토 & 매크로 모닝 브리핑
+# 📅 [2026-11-19] 크립토 & 매크로 모닝 브리핑
 
 > DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 103.856 (0.354%)
-- US10Y: 5.068 (-0.686%)
-- SPX: 7316.9302 (-0.321%)
+- DXY: 103.834 (-0.025%)
+- US10Y: 5.072 (0.118%)
+- SPX: 7213.6001 (-1.502%)
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 62749.5781, 'chg_pct_1d': -3.304, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - German judge proposes dropping Movie2k case if operator hands over $2.56 billion in bitcoin
-  - Bitcoin miner MARA raises $185 million in debt after selling $1 billion BTC to repay loans
-  - Blaming Anthropic’s IPO for bitcoin’s slide is 'easy to believe,' but flawed, analysts say
-- ETH: {'last': 1751.62, 'chg_pct_1d': -3.913, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - U.S. judge says Ethereum has ‘no terms of use,’ clears MIT brothers of $25 million fraud
-  - Ethereum's Glamsterdam upgrade risks breaking up to 15,000 automated apps
-- SOL: {'last': 73.07, 'chg_pct_1d': -2.71, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+- BTC: {'last': 62431.8789, 'chg_pct_1d': -0.882, 'symbol': 'BTC-USD', 'source': 'yahoo'}
+  - Trump Media wants to clear $884 million of debt without selling its bitcoin
+  - Bitcoin ETF outflows show waning crypto appetite ahead of Anthropic's Nasdaq debut
+  - Bitcoin holds above $63,750 but Fed rate-hike threats loom large
+- ETH: {'last': 1754.1801, 'chg_pct_1d': -1.159, 'symbol': 'ETH-USD', 'source': 'yahoo'}
+  - Ethereum block builders received the most in a $3.4 million vault hack, data shows
+- SOL: {'last': 72.94, 'chg_pct_1d': -0.927, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+  - Roundhill scraps Solana and XRP income ETFs as rival funds indicate low demand
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 53.51, 'chg_pct_1d': -2.05, 'symbol': 'CRCL', 'source': 'yahoo'}
+- CRCL price: {'last': 53.2, 'chg_pct_1d': -0.206, 'symbol': 'CRCL', 'source': 'yahoo'}
 - CRCL tvl: None
-  - Circle turns to DBS as banks build rival digital payment systems across Asia
-- ONDO price: {'last': 0.2983, 'chg_pct_1d': -4.317, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
+- ONDO price: {'last': 0.2941, 'chg_pct_1d': -1.438, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
 - ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 9.008, 'chg_pct_1d': -3.228, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1722893396.0, 'tvl_chg_pct_approx': -0.728, 'url': 'https://defillama.com/protocol/chainlink'}
+- LINK price: {'last': 8.955, 'chg_pct_1d': -1.494, 'symbol': 'LINK-USD', 'source': 'yahoo'}
+- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1729630142.0, 'tvl_chg_pct_approx': 0.685, 'url': 'https://defillama.com/protocol/chainlink'}
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 190.08, 'chg_pct_1d': 0.269}
+- TAO: {'source': 'coingecko', 'last': 191.49, 'chg_pct_1d': 0.201}
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
 - 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
