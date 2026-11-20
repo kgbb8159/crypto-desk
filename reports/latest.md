@@ -1,35 +1,26 @@
-# 📅 [2026-11-19] 크립토 & 매크로 모닝 브리핑
-
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+# 📅 [2026-11-20] 크립토 & 매크로 모닝 브리핑
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 103.834 (-0.025%)
-- US10Y: 5.072 (0.118%)
-- SPX: 7213.6001 (-1.502%)
+- **DXY (달러인덱스):** 103.753 (-0.141%)
+- **US10Y (미 국채 10년물 금리):** 5.052% (-0.276%)
+- **S&P 500:** 7,175.83 (-2.018%)
+- **매크로 요약:** 연준의 추가 금리 인상 가능성 제기와 후행적 데이터 의존에 대한 비판이 상존하는 가운데, 앤스로픽(Anthropic) IPO 이후 기술주 폭락 영향으로 위험자산 전반이 위축되었습니다. 미 국채 금리가 5%대에서 고공행진을 이어가며 금과 비트코인 등 주요 자산군에 하방 압력으로 작용하고 있습니다.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 62431.8789, 'chg_pct_1d': -0.882, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Trump Media wants to clear $884 million of debt without selling its bitcoin
-  - Bitcoin ETF outflows show waning crypto appetite ahead of Anthropic's Nasdaq debut
-  - Bitcoin holds above $63,750 but Fed rate-hike threats loom large
-- ETH: {'last': 1754.1801, 'chg_pct_1d': -1.159, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - Ethereum block builders received the most in a $3.4 million vault hack, data shows
-- SOL: {'last': 72.94, 'chg_pct_1d': -0.927, 'symbol': 'SOL-USD', 'source': 'yahoo'}
-  - Roundhill scraps Solana and XRP income ETFs as rival funds indicate low demand
+- **BTC ($61,834.83, -1.83%):** 미 증시 약세와 현물 ETF 유출 전환 영향으로 4개월래 최저 수준으로 하락했습니다. Q3에 기관 자금 40억 달러가 순유입되었으나 최근 유출세가 지속되고 있습니다. 한편 트럼프 미디어는 비트코인 매도 없이 8억 8,400만 달러의 부채를 상환할 계획을 밝혔으며, VanEck은 BTC ETF의 커스토디언(Gemini)을 변경했습니다.
+- **ETH ($1,740.51, -1.92%):** 앱 호환성 문제로 인해 다음 대형 차기 업그레이드가 2027년으로 연기되었습니다. 또한 340만 달러 규모의 볼트 해킹 사건이 발생하여 블록 빌더들에게 자금이 유출되는 이슈가 있었습니다.
+- **SOL ($72.62, -1.36%) & XRP ($0.9655, -0.32%):** 라운드힐(Roundhill)이 기관 및 투자자 수요 부족을 이유로 Solana 및 XRP 인컴 ETF 출시 계획을 전격 철회했습니다.
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 53.2, 'chg_pct_1d': -0.206, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-- ONDO price: {'last': 0.2941, 'chg_pct_1d': -1.438, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 8.955, 'chg_pct_1d': -1.494, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1729630142.0, 'tvl_chg_pct_approx': 0.685, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL ($51.88, -2.68%):** 서클(Circle) 및 Arc 메인넷 관련 당일 신규 헤드라인은 발표되지 않았습니다 (확인 필요).
+- **ONDO ($0.2919, -2.19%) & LINK ($8.882, -2.297%, TVL $1.73B):** 트럼프 측 SEC 위원 지명자가 토큰화(Tokenization) 정책 수립을 위해 정식 규칙 제정 절차가 필요하다고 언급했습니다. 시장 전반의 침체로 RWA 관련 자산도 소폭 조정세를 보이고 있습니다.
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 191.49, 'chg_pct_1d': 0.201}
+- **TAO ($187.53, -4.32%):** 미 증시 내 AI 및 기술주 조정 영향으로 하락세를 기록했습니다. 당일 서브넷 관련 추가적인 개별 호재는 확인되지 않았습니다 (확인 필요).
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. 연준의 금리 경계감과 기술주 폭락으로 비트코인이 4개월래 최저치까지 하락하며 시장 변동성이 확대되었습니다.
+2. ETH의 대형 업그레이드 2027년 연기 및 SOL/XRP 인컴 ETF 철회 등 주요 알트코인의 단기 모멘텀이 지연되고 있습니다.
+3. BTC 현물 ETF의 유출 전환 여부와 미 국채 금리(5%대)의 향방이 단기 방향성을 결정짓는 핵심 지표입니다.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 전체 포트폴리오 평가손실률(-48.26%)이 심화된 구간이므로, 매크로 금리 우려 및 BTC ETF 유출세가 진정될 때까지 신규 자금 투입을 자제하고 현금 비중을 유지하는 관망 전략을 추천합니다.
