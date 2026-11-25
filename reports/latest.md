@@ -1,34 +1,26 @@
-# 📅 [2026-11-24] 크립토 & 매크로 모닝 브리핑
-
-> DRY_RUN/폴백 초안 — LLM 요약 전 원천 데이터 요약
+# 📅 [2026-11-25] 크립토 & 매크로 모닝 브리핑
 
 ## 1. 🌐 거시경제 & 매크로 지표
-- DXY: 104.284 (-0.035%)
-- US10Y: 4.918 (0.122%)
-- SPX: 7237.1699 (4.729%)
+- **DXY / 국채금리 / 증시**: DXY(103.848, -0.452%)와 미 10년물 국채금리(4.904%, -0.285%)는 소폭 하락했으나, S&P500(7,201.09, -0.499%)은 무역 관세(Tariffs) 우려 재부각과 증시 반등 모멘텀 둔화로 하락 마감.
+- **연준(Fed) 금리 경로**: 거시 서사가 점차 연준의 통화정책 및 금리 경로로 집결되는 가운데, 시장은 추가 금리 향방을 주시하며 리스크 오프(위험회피) 태세를 보임.
 
 ## 2. 🪙 핵심 종목별 주요 이슈 (BTC, ETH, SOL)
-- BTC: {'last': 59914.0781, 'chg_pct_1d': -2.119, 'symbol': 'BTC-USD', 'source': 'yahoo'}
-  - Bitcoin rebound already losing steam as AI trade returns with a bang
-  - Eric Trump-backed American Bitcoin secures $150 million loan against its bitcoin
-  - Bitcoin's 5-year return is nearly zero, great narratives are fading and what's left is the Fed
-- ETH: {'last': 1684.02, 'chg_pct_1d': -1.453, 'symbol': 'ETH-USD', 'source': 'yahoo'}
-  - Ethereum wallets holding $72 billion ETH are under threat of a future quantum attack
-- SOL: {'last': 70.79, 'chg_pct_1d': -1.656, 'symbol': 'SOL-USD', 'source': 'yahoo'}
+- **BTC ($59,464.59, -2.85%)**: $60,000 선이 무너지며 11월 현물 ETF 누적 순유출이 역대 최대인 47.1억 달러를 기록. $55,000 대 하락 여파로 1,1,60만 BTC가 손실 구간(underwater)에 진입하고 선물 청산 물량이 3배 급증. (아크인베스트의 크립토 ETF 2종 철회 발표 / 에릭 트럼프 지원 American Bitcoin의 BTC 담보 1.5억 달러 대출 확보).
+- **ETH ($1,669.41, -2.31%)**: 개별 대형 호재 부재 속 시장 전반의 약세와 동반 하락 (현물 ETF 세부 수급: 확인 필요).
+- **SOL ($69.61, -3.30%) & XRP ($0.9215, -1.93%)**: 솔라나는 TVL 45.28억 달러 수준을 유지 중이나 전반적 시장 심리 악화로 조정세. XRP 역시 약보합 유지.
 
 ## 3. 🏦 RWA & 기관 서클 생태계 (CRCL, ONDO, LINK)
-- CRCL price: {'last': 51.34, 'chg_pct_1d': 8.061, 'symbol': 'CRCL', 'source': 'yahoo'}
-- CRCL tvl: None
-- ONDO price: {'last': 0.2839, 'chg_pct_1d': -1.67, 'symbol': 'ONDO-USD', 'source': 'yahoo'}
-- ONDO tvl: {'slug': 'ondo-finance', 'name': 'Ondo Finance', 'tvl_usd': 0.0, 'tvl_chg_pct_approx': None, 'url': 'https://defillama.com/protocol/ondo-finance'}
-- LINK price: {'last': 9.019, 'chg_pct_1d': 0.218, 'symbol': 'LINK-USD', 'source': 'yahoo'}
-- LINK tvl: {'slug': 'chainlink', 'name': 'Chainlink', 'tvl_usd': 1702434340.0, 'tvl_chg_pct_approx': -0.019, 'url': 'https://defillama.com/protocol/chainlink'}
+- **CRCL ($47.72, -7.05%)**: 주가 하락세 지속. (실적 및 Arc 메인넷 관련 추가 신규 이슈: 확인 필요).
+- **RWA 주요 뉴스**: 피델리티(Fidelity), 스트라이브(Strive), 이토로(eToro)가 OKX-ICE 토큰화 증권 거래 venue에 합류하며 기관급 RWA 인프라 확장 진행 중.
+- **ONDO ($0.2764, -4.27%) & LINK ($8.804, -2.17%)**: 체인링크 TVL은 약 16.94억 달러를 유지 중이나 토큰 가격은 약세 동반. (ONDO 온체인 TVL: 확인 필요).
 
 ## 4. 🤖 AI & DePIN (TAO)
-- TAO: {'source': 'coingecko', 'last': 187.05, 'chg_pct_1d': -2.666}
+- **TAO ($179.91, -5.57%)**: 젠슨 황 복귀에 따른 엔비디아 및 증시 AI 트레이드 반등에도 불구하고, 비트코인 및 가상자산 시장으로의 AI 랠리 전이는 한계를 보이며 하락.
+- **서브넷 및 AI 칩 연동 이슈**: 확인 필요.
 
 ## 5. 💡 오늘 하루 체크할 핵심 포인트 (3줄 요약)
-- 매크로(DXY/US10Y)와 BTC ETF 수급 동시 점검
-- CRCL/ONDO/LINK RWA 플로우와 TAO 서브넷 헤드라인 재확인
+1. 비트코인 $60,000 이탈 및 11월 ETF 누적 순유출 47.1억 달러 달성으로 단기 수급 악화.
+2. 관세 우려 재부각과 엔비디아 모멘텀 둔화에 따른 증시·크립토 동반 리스크 오프.
+3. 피델리티 등 전통 금융사의 OKX-ICE RWA 진입에도 불구하고 주력 알트코인 전반의 조정세 지속.
 
-🎯 대표님의 현재 평단가 대비 실전 대응 전략: 평단 대비 손실 구간은 거미줄 체결 후 평단 하향을 확인하고, 수익 구간은 분할 익절·비중 조절을 검토 (LLM dry-run 플레이스홀더).
+🎯 대표님의 현재 평단가 대비 실전 대응 전략: 현재 포트폴리오 손실률(-50.49%)과 비트코인 $60,000 이탈 및 ETF 유출 압력이 거센 만큼, 신규 물량 추가를 지양하고 $55,000 지지선 확인 및 연준 금리 향방을 지켜보며 보수적인 관망 대응을 추천합니다.
